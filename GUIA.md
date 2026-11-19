@@ -1,5 +1,7 @@
 # Guía de la beta de NEXUS
 
+**[English](GUIDE.md) · Español**
+
 ## 1. Instalar
 
 1. Descarga `NEXUS-Setup-….exe` desde **Releases**.
@@ -9,7 +11,11 @@
 
 No hace falta instalar nada más.
 
-## 2. Primer uso
+## 2. Idioma
+
+NEXUS arranca en español o en inglés según el idioma de tu Windows. Puedes cambiarlo cuando quieras desde el menú de la izquierda.
+
+## 2b. Primer uso
 
 1. Abre NEXUS y entra en **Game Center**. Aparecen tus juegos de Steam y Epic.
 2. Entra en un juego. Con el juego **cerrado**, pulsa **AUTO AI · que lo haga NEXUS** y acepta.
