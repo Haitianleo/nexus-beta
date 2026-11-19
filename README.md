@@ -157,7 +157,3 @@ Apoyar no da acceso a nada distinto ni compra una fecha: la beta es la misma par
 ## Licencia
 
 NEXUS es software propietario. Esta beta se ofrece solo para probarla: consulta **[LICENSE.md](LICENSE.md)**. Incluye componentes de terceros con sus propias licencias: **[TERCEROS.md](TERCEROS.md)**.
-
----
-
-**English, in short:** NEXUS is a Windows tool that tunes your games' graphics by testing one change at a time and measuring your real FPS while you play, keeping only what helps on your PC. Closed beta, tested on few machines; everything it changes can be undone with one button. Download the installer from Releases and read GUIA.md (Spanish) first. Proprietary software, for testing only: see LICENSE.md.
