@@ -15,7 +15,7 @@ No hace falta instalar nada más.
 
 NEXUS arranca en español o en inglés según el idioma de tu Windows. Puedes cambiarlo cuando quieras desde el menú de la izquierda.
 
-## 2b. Primer uso
+## 3. Primer uso
 
 1. Abre NEXUS y entra en **Game Center**. Aparecen tus juegos de Steam y Epic.
 2. Entra en un juego. Con el juego **cerrado**, pulsa **AUTO AI · que lo haga NEXUS** y acepta.
@@ -24,27 +24,27 @@ NEXUS arranca en español o en inglés según el idioma de tu Windows. Puedes ca
 
 Con el deslizador eliges hasta dónde llega: **MAX FPS** (busca más FPS), **BALANCED** (hasta los Hz de tu pantalla, sin tirones) o **ULTRA QUALITY** (no baja la calidad).
 
-## 3. Deshacer
+## 4. Deshacer
 
 En la ficha del juego, **Restaurar todo** devuelve los ajustes del juego, del controlador NVIDIA y de Windows a como estaban, y detiene AUTO AI en ese juego.
 
-## 4. Juegos con antitrampas
+## 5. Juegos con antitrampas
 
 En juegos con antitrampas (por ejemplo Easy Anti-Cheat), NEXUS **solo** cambia el controlador y Windows y no toca los archivos del juego. Existe un permiso para que también cambie el archivo de ajustes de ese juego.
 
 **En esta beta, no actives ese permiso.** No está probado lo suficiente, y la decisión de tocar un juego con antitrampas tiene riesgos para tu cuenta que son solo tuyos.
 
-## 5. Qué esperar
+## 6. Qué esperar
 
 - Los estados de un juego van de **DETECTADO** a **OPTIMIZADO**. «Aplicado» no es «optimizado»: NEXUS solo dice «optimizado» cuando el juego aceptó el cambio y los FPS medidos mejoraron.
 - Si una partida es corta o los FPS varían mucho, NEXUS no decide: sigue midiendo en la siguiente.
 - NEXUS graba FPS, uso y temperaturas mientras juegas. Esos datos se quedan en tu PC.
 
-## 6. Desinstalar
+## 7. Desinstalar
 
 **Configuración de Windows → Aplicaciones → NEXUS → Desinstalar.** Antes, usa **Restaurar todo** en cada juego donde pulsaste AUTO AI.
 
-## 7. Si algo falla
+## 8. Si algo falla
 
 | Qué pasa | Qué probar |
 |---|---|
