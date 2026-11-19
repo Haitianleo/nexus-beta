@@ -6,6 +6,8 @@ NEXUS is a Windows program that tunes your games' graphics **on its own, by meas
 
 > **This is a beta.** It has been tested on very few machines. It may fail. Everything it changes can be undone with one button.
 
+![AUTO AI result on a game: status, what it changed and what to do next](images/optimization.jpg)
+
 The app is available in **English and Spanish**. It picks the language of your Windows the first time, and you can switch it at any moment from the menu.
 
 ## What it does
@@ -16,6 +18,8 @@ The app is available in **English and Spanish**. It picks the language of your W
 - **Restore everything:** one button puts every setting back the way it was.
 - **A Windows notification** when something changes after a session.
 - Also: live PC dashboard (temperatures, load, FPS), your Steam and Epic library, and power controls.
+
+![Live dashboard: CPU, GPU, RAM, VRAM, temperatures and fans](images/dashboard.jpg)
 
 ## What it does not do
 
@@ -87,7 +91,9 @@ NEXUS es un programa para PC con Windows que ajusta los gráficos de tus juegos 
 
 > **Esto es una beta.** Está probada en pocos equipos. Puede fallar. Todo lo que cambia se puede deshacer con un botón.
 
-La aplicación está en **español e inglés**. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú.
+![Resultado de AUTO AI en un juego: estado, qué cambió y qué hacer ahora](images/optimization.jpg)
+
+La aplicación está en **español e inglés**. Las capturas de esta página están en inglés. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú.
 
 ## Qué hace
 
