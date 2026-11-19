@@ -59,6 +59,17 @@ Abre un aviso en **[Issues](../../issues)** con:
 3. Qué te mostró NEXUS después de jugar (una captura del bloque «AUTO AI · resultado» sirve).
 4. Qué esperabas y qué pasó.
 
+## Apoyar el proyecto
+
+NEXUS es gratis durante la beta y lo hace una sola persona. Si te resulta útil, puedes apoyarlo en **[Ko-fi](https://ko-fi.com/12thmonth)**.
+
+Las aportaciones van a dos cosas concretas:
+
+- **La app del teléfono en la App Store.** Publicar ahí exige una cuenta de desarrollador de Apple, que es de pago cada año. Es la app para ver tu PC, lanzar AUTO AI y jugar a tus juegos desde el móvil, también fuera de casa.
+- **Firmar el instalador de Windows**, para que deje de salir el aviso de «editor desconocido». El certificado también es de pago.
+
+Apoyar no da acceso a nada distinto ni compra una fecha: la beta es la misma para todos.
+
 ## Licencia
 
 NEXUS es software propietario. Esta beta se ofrece solo para probarla: consulta **[LICENSE.md](LICENSE.md)**. Incluye componentes de terceros con sus propias licencias: **[TERCEROS.md](TERCEROS.md)**.
