@@ -37,6 +37,12 @@ Its limits, plainly: it takes several sessions; it measures normal play, not a r
 
 ![Settings guide running on SILENT HILL: Townfall: six settings to test, starting with a reference session](images/guide.jpg)
 
+## Keep a setting as it is (new in 0.36)
+
+Asked on Reddit: "I want ray tracing on and let it tune the rest." Each game now has **What NEXUS leaves alone in this game**: one button per kind of setting (ray tracing, shadows, textures…). AUTO AI, Optimize and the settings guide leave those alone. If NEXUS had already changed one, it puts it back, unless you changed it yourself in the game menu afterwards.
+
+It passes automated tests but hasn't been tried in real play sessions yet.
+
 ## Games with anti-cheat
 
 A common question is whether an anti-cheat will pick NEXUS up.
@@ -65,6 +71,18 @@ A live PC dashboard (temperatures, load, fans, FPS), your Steam and Epic library
 
 ![Live dashboard: CPU, GPU, RAM, VRAM, temperatures and fans](images/dashboard.jpg)
 
+## New versions (new in 0.36)
+
+Once a day NEXUS checks this page for a newer version. It only reads: it sends nothing about you. If there is one, NEXUS shows a bar with a **Download** button and a Windows notification. You can turn it off in **Connection & security**.
+
+Versions 0.35.1 and older can't do this, so install 0.36 by hand once. If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
+
+## Privacy
+
+- NEXUS asks once whether it may count how many people use it. If you say yes, while NEXUS is open it sends a random number that identifies the PC (not you) and the NEXUS version every 5 minutes. Nothing else: no name, no games, no PC details. Turning it off in **Connection & security** deletes that number. If you say no, nothing is sent.
+- The daily check for new versions only reads GitHub.
+- Feedback only leaves your PC if you submit the form yourself.
+
 ## Requirements
 
 - Windows 11 (64-bit).
@@ -73,9 +91,11 @@ A live PC dashboard (temperatures, load, fans, FPS), your Steam and Epic library
 
 ## Download
 
-Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.35.1).
+Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.36.0).
 
-**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.35.1.exe](https://www.virustotal.com/gui/file/e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699): 0 of 66 antivirus engines flag it. The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699`
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.36.0.exe](https://www.virustotal.com/gui/file/18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69): 0 of 67 antivirus engines flag it. The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69`
+
+Already have NEXUS? Install the new version over it: your settings are kept.
 
 Read the **[installation guide](GUIDE.md)** first. It explains the Windows "unknown publisher" warning and how to undo everything.
 
@@ -93,7 +113,7 @@ These results come from a single PC. The screenshots on this page are real, from
 
 The quickest way, **no account needed**: the **[feedback form](https://forms.gle/orRMRurHcRCdbiBRA)**. Stars plus a few optional questions; it takes a minute.
 
-If you have a GitHub account, you can also use the **Feedback & support** button inside NEXUS. It opens a GitHub issue with your text already filled in, and nothing is sent without you. Or open an entry in **[Issues](../../issues)** with:
+The **Feedback & support** button inside NEXUS (0.36 and later) opens that same form with your stars and text already filled in: you check it and press Submit. If you have a GitHub account, you can also open an entry in **[Issues](../../issues)** with:
 
 1. Your graphics card and processor.
 2. The game.
@@ -165,6 +185,12 @@ Sus límites, tal cual: hacen falta varias partidas; mide en partidas normales y
 
 ![Guía de ajustes en SILENT HILL: Townfall: seis ajustes por probar, empezando por una partida de referencia](images/guide.jpg)
 
+## Dejar un ajuste como está (nuevo en la 0.36)
+
+Lo pidieron en Reddit: «quiero el trazado de rayos encendido y que ajuste el resto». Cada juego tiene ahora **Lo que NEXUS no toca en este juego**: un botón por tipo de ajuste (trazado de rayos, sombras, texturas…). AUTO AI, Optimizar y la guía de ajustes no los tocan. Si NEXUS ya había cambiado alguno, lo devuelve a como estaba, salvo que lo hayas cambiado tú después en el menú del juego.
+
+Pasa las pruebas automáticas, pero todavía no se ha probado con partidas reales.
+
 ## Juegos con antitrampas
 
 Una pregunta habitual es si el antitrampas de un juego detectará NEXUS.
@@ -193,6 +219,18 @@ Panel del PC en tiempo real (temperaturas, uso, ventiladores, FPS), tu bibliotec
 
 ![Panel en tiempo real: procesador, gráfica, RAM, VRAM, temperaturas y ventiladores](images/dashboard.jpg)
 
+## Versiones nuevas (nuevo en la 0.36)
+
+Una vez al día NEXUS mira en esta página si hay una versión más nueva. Solo lee: no envía nada tuyo. Si la hay, NEXUS muestra una barra con el botón **Descargar** y un aviso de Windows. Se puede apagar en **Conexión y seguridad**.
+
+La 0.35.1 y las anteriores no saben hacerlo, así que instala la 0.36 a mano una vez. Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
+
+## Privacidad
+
+- NEXUS pregunta una vez si puede contar cuántas personas lo usan. Si dices que sí, mientras NEXUS está abierto envía cada 5 minutos un número al azar que identifica el PC (no a ti) y la versión de NEXUS. Nada más: ni tu nombre, ni tus juegos, ni datos del PC. Apagarlo en **Conexión y seguridad** borra ese número. Si dices que no, no se envía nada.
+- La consulta diaria de versiones nuevas solo lee GitHub.
+- Tu opinión solo sale de tu PC si tú envías el formulario.
+
 ## Requisitos
 
 - Windows 11 (64 bits).
@@ -201,9 +239,11 @@ Panel del PC en tiempo real (temperaturas, uso, ventiladores, FPS), tu bibliotec
 
 ## Descargar
 
-Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.35.1).
+Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.36.0).
 
-**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.35.1.exe](https://www.virustotal.com/gui/file/e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699): 0 de 66 antivirus lo marcan. El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699`
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.36.0.exe](https://www.virustotal.com/gui/file/18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69): 0 de 67 antivirus lo marcan. El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69`
+
+¿Ya tienes NEXUS? Instala la versión nueva encima: tus ajustes se conservan.
 
 Lee antes la **[guía de instalación](GUIA.md)**. Explica el aviso de «editor desconocido» de Windows y cómo deshacer todo.
 
@@ -221,7 +261,7 @@ Son resultados de un solo equipo. Las capturas de esta página son reales, de es
 
 Lo más rápido, **sin cuenta**: el **[formulario de opinión](https://forms.gle/orRMRurHcRCdbiBRA)**. Estrellas y unas preguntas opcionales; es un minuto.
 
-Si tienes cuenta de GitHub, también puedes usar el botón **Opinar y apoyar** dentro de NEXUS. Abre un aviso en GitHub con tu texto ya escrito, y no se envía nada sin ti. O abre un aviso en **[Issues](../../issues)** con:
+El botón **Opinar y apoyar** dentro de NEXUS (0.36 y posteriores) abre ese mismo formulario con tus estrellas y tu texto ya escritos: lo revisas y pulsas Enviar. Si tienes cuenta de GitHub, también puedes abrir un aviso en **[Issues](../../issues)** con:
 
 1. Tu tarjeta gráfica y procesador.
 2. El juego.
