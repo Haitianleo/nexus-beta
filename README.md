@@ -32,6 +32,7 @@ Suggested by a Reddit user: like the "optimized settings" guides from hardware c
 - First, one reference session with no changes. Then **one setting per session**: shadows, global illumination, reflections, effects, post-processing and draw distance, each one level lower.
 - For each setting you see the FPS gained or lost, the 1% low, and a verdict: *clear gain*, *lowers FPS*, *no measurable effect* or *unclear*. If it's unclear, the same test runs one more session.
 - Each setting goes back the way it was after it's measured. At the end you tick the ones that are worth it to you, and NEXUS applies only those.
+- If the game puts its settings file back (some games do), the guide notices on the first test and carries on through Engine.ini, which the game reads at startup (new in 0.36.1).
 
 Its limits, plainly: it takes several sessions; it measures normal play, not a repeated benchmark scene, so it is noisier than a benchmark (play in similar areas); and it doesn't judge image quality, which you decide by looking at the game. It passes automated tests but hasn't been tried with real play sessions yet. The screenshot shows it at the start.
 
@@ -91,9 +92,9 @@ Versions 0.35.1 and older can't do this, so install 0.36 by hand once. If you al
 
 ## Download
 
-Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.36.0).
+Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.36.1).
 
-**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.36.0.exe](https://www.virustotal.com/gui/file/18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69): 0 of 67 antivirus engines flag it. The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69`
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.36.1.exe](https://www.virustotal.com/gui/file/9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c): no antivirus engine flags it. The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c`
 
 Already have NEXUS? Install the new version over it: your settings are kept.
 
@@ -180,6 +181,7 @@ La propuso un usuario de Reddit: como las guías de «ajustes optimizados» de l
 - Primero, una partida de referencia sin cambios. Después, **un ajuste por partida**: sombras, iluminación global, reflejos, efectos, posprocesado y distancia de dibujado, cada uno un nivel más bajo.
 - De cada ajuste ves los FPS que gana o pierde, el 1 % más bajo y un veredicto: *mejora clara*, *baja los FPS*, *sin efecto medible* o *dudoso*. Si es dudoso, la misma prueba sigue una partida más.
 - Cada ajuste vuelve a como estaba después de medirlo. Al final marcas los que te compensan y NEXUS aplica solo esos.
+- Si el juego devuelve su archivo de ajustes a su valor (algunos lo hacen), la guía lo nota en la primera prueba y sigue por Engine.ini, que el juego lee al arrancar (nuevo en la 0.36.1).
 
 Sus límites, tal cual: hacen falta varias partidas; mide en partidas normales y no en una escena repetida, así que hay más ruido que en un banco de pruebas (juega en zonas parecidas); y no juzga la calidad de imagen, eso lo decides tú mirando el juego. Pasa las pruebas automáticas, pero todavía no se ha probado con partidas reales. La captura la muestra al empezar.
 
@@ -239,9 +241,9 @@ La 0.35.1 y las anteriores no saben hacerlo, así que instala la 0.36 a mano una
 
 ## Descargar
 
-Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.36.0).
+Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.36.1).
 
-**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.36.0.exe](https://www.virustotal.com/gui/file/18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69): 0 de 67 antivirus lo marcan. El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `18b39c45cadb4571b4e37d70e529d3ee45d18598f7ef77955889b8374fb0ef69`
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.36.1.exe](https://www.virustotal.com/gui/file/9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c): ningún antivirus lo marca. El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c`
 
 ¿Ya tienes NEXUS? Instala la versión nueva encima: tus ajustes se conservan.
 
