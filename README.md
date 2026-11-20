@@ -33,6 +33,8 @@ Suggested by a Reddit user: like the "optimized settings" guides from hardware c
 - For each setting you see the FPS gained or lost, the 1% low, and a verdict: *clear gain*, *lowers FPS*, *no measurable effect* or *unclear*. If it's unclear, the same test runs one more session.
 - Each setting goes back the way it was after it's measured. At the end you tick the ones that are worth it to you, and NEXUS applies only those.
 - If the game puts its settings file back (some games do), the guide notices on the first test and carries on through Engine.ini, which the game reads at startup (new in 0.36.1).
+- **Plan B (new in 0.37):** when the guide works through Engine.ini, it also writes the exact variables the game itself uses for that level, read from the game's own configuration inside its packages (only when they aren't encrypted). That way the level applies even if the game re-applies its quality groups at startup, and the values are the game's own, not made up. The table shows it as "via Engine.ini · N variables from the game".
+- **Forget what was learned (new in 0.37):** to run the guide again from scratch, this button sets aside what NEXUS checked about that game on your PC. It doesn't change the game or undo anything you applied.
 
 Its limits, plainly: it takes several sessions; it measures normal play, not a repeated benchmark scene, so it is noisier than a benchmark (play in similar areas); and it doesn't judge image quality, which you decide by looking at the game. It passes automated tests but hasn't been tried with real play sessions yet. The screenshot shows it at the start.
 
@@ -42,7 +44,17 @@ Its limits, plainly: it takes several sessions; it measures normal play, not a r
 
 Asked on Reddit: "I want ray tracing on and let it tune the rest." Each game now has **What NEXUS leaves alone in this game**: one button per kind of setting (ray tracing, shadows, textures…). AUTO AI, Optimize and the settings guide leave those alone. If NEXUS had already changed one, it puts it back, unless you changed it yourself in the game menu afterwards.
 
+Since 0.37, when AUTO AI changes something it reminds you right there: if something looks worse (say, blurrier shadows), tick it in **What NEXUS leaves alone** and it goes back.
+
 It passes automated tests but hasn't been tried in real play sessions yet.
+
+## Your own Engine.ini changes are kept (new in 0.37)
+
+Engine.ini isn't only NEXUS's: you can edit it yourself, and some games (Mortal Shell II, for example) save their own options there. Before, undoing a NEXUS change put the whole file back to its old copy, which could also undo your changes or the game's. Now NEXUS removes only its own lines; if nobody else touched the file, it goes back exactly as it was. The note NEXUS writes in that file is now in English.
+
+## More kinds of settings recognized (new in 0.37)
+
+NEXUS now tells apart 25 kinds of graphics settings instead of 21, in any game that saves them in readable files. Frame generation, geometry and detail, materials and hair are new, and it recognizes more names for HDR (including Unreal's standard HDR setting, which it missed in every game), low latency, lighting, FPS limit, effects (film grain, sharpening…) and display. Checked against the real settings files of three games.
 
 ## Games with anti-cheat
 
@@ -92,9 +104,9 @@ Versions 0.35.1 and older can't do this, so install 0.36 by hand once. If you al
 
 ## Download
 
-Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.36.1).
+Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.37.0).
 
-**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.36.1.exe](https://www.virustotal.com/gui/file/9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c): no antivirus engine flags it. The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c`
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.37.0.exe](https://www.virustotal.com/gui/file/e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915): no antivirus engine flags it (0 of 66). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915`
 
 Already have NEXUS? Install the new version over it: your settings are kept.
 
@@ -182,6 +194,8 @@ La propuso un usuario de Reddit: como las guías de «ajustes optimizados» de l
 - De cada ajuste ves los FPS que gana o pierde, el 1 % más bajo y un veredicto: *mejora clara*, *baja los FPS*, *sin efecto medible* o *dudoso*. Si es dudoso, la misma prueba sigue una partida más.
 - Cada ajuste vuelve a como estaba después de medirlo. Al final marcas los que te compensan y NEXUS aplica solo esos.
 - Si el juego devuelve su archivo de ajustes a su valor (algunos lo hacen), la guía lo nota en la primera prueba y sigue por Engine.ini, que el juego lee al arrancar (nuevo en la 0.36.1).
+- **Plan B (nuevo en la 0.37):** cuando la guía va por Engine.ini, escribe además las variables exactas con las que el propio juego define ese nivel, leídas de la configuración que el juego trae dentro de sus paquetes (solo si no están cifrados). Así el nivel se aplica aunque el juego vuelva a poner sus grupos de calidad al arrancar, y los valores son los del juego, no inventados. En la tabla sale como «por Engine.ini · N variables del juego».
+- **Olvidar lo aprendido (nuevo en la 0.37):** para repetir la guía desde cero, este botón aparta lo que NEXUS comprobó de ese juego en tu PC. No cambia nada del juego ni deshace lo que aplicaste.
 
 Sus límites, tal cual: hacen falta varias partidas; mide en partidas normales y no en una escena repetida, así que hay más ruido que en un banco de pruebas (juega en zonas parecidas); y no juzga la calidad de imagen, eso lo decides tú mirando el juego. Pasa las pruebas automáticas, pero todavía no se ha probado con partidas reales. La captura la muestra al empezar.
 
@@ -191,7 +205,17 @@ Sus límites, tal cual: hacen falta varias partidas; mide en partidas normales y
 
 Lo pidieron en Reddit: «quiero el trazado de rayos encendido y que ajuste el resto». Cada juego tiene ahora **Lo que NEXUS no toca en este juego**: un botón por tipo de ajuste (trazado de rayos, sombras, texturas…). AUTO AI, Optimizar y la guía de ajustes no los tocan. Si NEXUS ya había cambiado alguno, lo devuelve a como estaba, salvo que lo hayas cambiado tú después en el menú del juego.
 
+Desde la 0.37, cuando AUTO AI cambia algo te lo recuerda ahí mismo: si algo se ve peor (por ejemplo, sombras más borrosas), márcalo en **Lo que NEXUS no toca** y vuelve a como estaba.
+
 Pasa las pruebas automáticas, pero todavía no se ha probado con partidas reales.
+
+## Tus cambios en Engine.ini se respetan (nuevo en la 0.37)
+
+Engine.ini no es solo de NEXUS: puedes editarlo tú, y algunos juegos (por ejemplo Mortal Shell II) guardan ahí sus propias opciones. Antes, al deshacer un cambio de NEXUS, el archivo entero volvía a su copia antigua, y eso podía deshacer también tus cambios o los del juego. Ahora NEXUS quita solo sus propias líneas; si nadie más tocó el archivo, vuelve exactamente a como estaba. La nota que NEXUS escribe en ese archivo ahora va en inglés.
+
+## Más tipos de ajustes reconocidos (nuevo en la 0.37)
+
+NEXUS distingue ahora 25 tipos de ajustes gráficos en vez de 21, en cualquier juego que los guarde en archivos legibles. Son nuevos la generación de fotogramas, la geometría y el detalle, los materiales y el pelo, y reconoce más nombres de HDR (incluido el ajuste de HDR estándar de Unreal, que antes no veía en ningún juego), baja latencia, iluminación, límite de FPS, efectos (grano de película, nitidez…) y pantalla. Comprobado con los archivos de ajustes reales de tres juegos.
 
 ## Juegos con antitrampas
 
@@ -241,9 +265,9 @@ La 0.35.1 y las anteriores no saben hacerlo, así que instala la 0.36 a mano una
 
 ## Descargar
 
-Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.36.1).
+Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.37.0).
 
-**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.36.1.exe](https://www.virustotal.com/gui/file/9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c): ningún antivirus lo marca. El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `9f76eda1f614646f2ffe75fc5307b396c554a8f7f7b2e29ea005b9d42fba2b0c`
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.37.0.exe](https://www.virustotal.com/gui/file/e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915): ningún antivirus lo marca (0 de 66). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915`
 
 ¿Ya tienes NEXUS? Instala la versión nueva encima: tus ajustes se conservan.
 
