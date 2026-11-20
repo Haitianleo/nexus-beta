@@ -22,29 +22,45 @@ NEXUS starts in English or Spanish depending on your Windows language. You can c
 3. You will see a spinner while it works and then a block with what it did. If there was nothing to change, it says that too.
 4. **Play.** When you close the game, NEXUS waits about a minute, checks what it applied and sends a Windows notification if something changed.
 
-The slider sets how far it goes: **MAX FPS** (look for more FPS), **BALANCED** (up to your screen's refresh rate, without stutter) or **ULTRA QUALITY** (never lowers quality).
+The slider sets how far it goes: **MAX FPS** (look for more FPS), **BALANCED** (up to your screen's refresh rate, without stutter) or **ULTRA QUALITY** (never lowers quality). In **FPS target** you can also type your own number for that game, for example 90.
 
-## 4. Undo
+## 4. Settings guide
+
+It measures what each setting costs on your PC, one at a time, and lets you choose.
+
+1. On the game's page, find **Settings guide** and press **Start the guide**.
+2. Play a normal session and close the game. That is the reference.
+3. NEXUS lowers one setting one level. Play another session and close the game: NEXUS measures it, puts the setting back and moves on to the next one. A Windows notification tells you each result.
+4. When it finishes, tick the settings that are worth it to you and press **Apply selected**. **Restore everything** undoes it.
+
+Tips: play in similar areas in every session, and don't change graphics in the game's menu while the guide runs. AUTO AI waits until the guide is finished. **Stop guide** ends it at any moment; whatever was on trial goes back the way it was.
+
+## 5. Undo
 
 On the game's page, **Restore everything** puts the game's settings, the NVIDIA driver and Windows back the way they were, and stops AUTO AI for that game.
 
-## 5. Games with anti-cheat
+## 6. Games with anti-cheat
 
-In games with anti-cheat (for example Easy Anti-Cheat), NEXUS **only** changes the driver and Windows and does not touch the game's files. There is a permission that also lets it change that game's settings file.
+In games where NEXUS detects an anti-cheat (Easy Anti-Cheat, BattlEye, NCGuard and others), it **only** changes the driver and Windows and does not touch the game's files.
 
-**In this beta, do not turn that permission on.** It has not been tested enough, and touching a game with anti-cheat carries risks for your account that are yours alone.
+In the full view (**Simple view · show everything** in the menu) each of those games has two separate permissions, both off:
 
-## 6. What to expect
+1. **Its settings file**: the same file the game's own graphics menu writes.
+2. **Engine.ini**: it can change things the menu doesn't allow, like fog. In an online game that may be seen as cheating. NEXUS shows a warning before you allow it. Withdrawing it puts Engine.ini back the way it was.
+
+**In this beta, leave both off in online games.** If you turn them on, the risk to your account is yours alone.
+
+## 7. What to expect
 
 - A game's status goes from **DETECTED** to **OPTIMIZED**. "Applied" is not "optimized": NEXUS only says "optimized" once the game accepted the change and the measured FPS improved.
 - If a session is short or the FPS vary a lot, NEXUS does not decide: it keeps measuring in the next one.
 - NEXUS records FPS, load and temperatures while you play. That data stays on your PC.
 
-## 7. Uninstall
+## 8. Uninstall
 
 **Windows Settings → Apps → NEXUS → Uninstall.** Before that, use **Restore everything** on each game where you pressed AUTO AI.
 
-## 8. If something goes wrong
+## 9. If something goes wrong
 
 | What happens | What to try |
 |---|---|

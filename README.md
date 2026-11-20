@@ -1,32 +1,69 @@
-# NEXUS AI Ecosystem — closed beta
+# NEXUS AI Ecosystem — beta
 
 **English** · [Español ↓](#español)
 
-NEXUS is a Windows program that tunes your games' graphics **on its own, by measuring**: it tries one change, watches how your FPS actually move while you play, and keeps only what really helps on your PC.
+NEXUS is a free Windows app (in beta) that tunes your games' graphics **by measuring, not guessing**. It changes one thing, watches your real FPS while you play, and keeps only what actually helps on your PC.
 
-> **This is a beta.** It has been tested on very few machines. It may fail. Everything it changes can be undone with one button.
+> **This is a beta.** It has been tested on very few PCs and it may fail. Everything it changes can be undone with one button.
 
-![AUTO AI result on a game: status, what it changed and what to do next](images/optimization.jpg)
+![Phantom Blade Zero after AUTO AI: optimized, verified, and a test that didn't help removed by itself](images/optimization.jpg)
 
-The app is available in **English and Spanish**. It picks the language of your Windows the first time, and you can switch it at any moment from the menu.
+The app is in **English and Spanish**. It uses your Windows language the first time, and you can switch it at any moment from the menu.
 
-## What it does
+## How it works
 
-- **AUTO AI:** press one button on a game and NEXUS studies its files, applies what it can safely change and, after each session, checks the result and carries on by itself.
-- **It measures for real:** no promised FPS. It compares what it measured before and after and tells you, also when a change did not help.
-- **Three routes:** the game's own settings, the NVIDIA driver and the Windows graphics settings.
-- **Restore everything:** one button puts every setting back the way it was.
-- **A Windows notification** when something changes after a session.
-- Also: live PC dashboard (temperatures, load, FPS), your Steam and Epic library, and power controls.
+1. **Press AUTO AI on a game.** NEXUS reads the game's settings files and applies what it can change safely: the game's own settings, the NVIDIA driver profile and the Windows graphics preference. It saves how everything was first.
+2. **Play normally, then close the game.** While you play, NEXUS records FPS with [PresentMon](https://github.com/GameTechDev/PresentMon) (Intel's open-source frame counter), plus GPU load, VRAM and temperatures.
+3. **NEXUS compares and decides.** After the session it compares FPS before and after. A change that didn't help is removed. If your FPS still don't reach the target, it leaves **one** new option on trial for your next session. You get a Windows notification each time.
+4. **Undo at any time.** **Restore everything** puts every setting back the way it was.
 
-![Live dashboard: CPU, GPU, RAM, VRAM, temperatures and fans](images/dashboard.jpg)
+It never promises FPS: it tells you what it measured, also when a change did nothing. What it cannot measure is shown as "—".
+
+![Measured performance of a session: average FPS, 1% low, GPU usage, VRAM and temperature](images/performance.jpg)
+
+### Your FPS target
+
+By default AUTO AI aims at your display's refresh rate. You can type your own number for each game (for example 90), or move the slider to **MAX FPS** (keeps looking for more FPS) or **ULTRA QUALITY** (never lowers quality).
+
+## Settings guide (new in 0.35)
+
+Suggested by a Reddit user: like the "optimized settings" guides from hardware channels, but measured on **your** PC.
+
+- First, one reference session with no changes. Then **one setting per session**: shadows, global illumination, reflections, effects, post-processing and draw distance, each one level lower.
+- For each setting you see the FPS gained or lost, the 1% low, and a verdict: *clear gain*, *lowers FPS*, *no measurable effect* or *unclear*. If it's unclear, the same test runs one more session.
+- Each setting goes back the way it was after it's measured. At the end you tick the ones that are worth it to you, and NEXUS applies only those.
+
+Its limits, plainly: it takes several sessions; it measures normal play, not a repeated benchmark scene, so it is noisier than a benchmark (play in similar areas); and it doesn't judge image quality, which you decide by looking at the game. It passes automated tests but hasn't been tried with real play sessions yet. The screenshot shows it at the start.
+
+![Settings guide running on SILENT HILL: Townfall: six settings to test, starting with a reference session](images/guide.jpg)
+
+## Games with anti-cheat
+
+A common question is whether an anti-cheat will pick NEXUS up.
+
+- NEXUS doesn't inject anything into games, doesn't read or write game memory, and never modifies executables, game data packages or anti-cheat files. FPS come from PresentMon, which reads Windows' own event tracing: no hooks, no overlay.
+- When it detects an anti-cheat in a game (Easy Anti-Cheat, BattlEye, NCGuard, nProtect GameGuard, XIGNCODE3, EA Anti-Cheat and others), by default it only changes the NVIDIA driver profile and the Windows graphics preference. Those work outside the game, like the NVIDIA Control Panel.
+- For each game you can give it **two separate permissions**, both off by default:
+  1. **Its settings file**: the same file the game's own graphics menu writes. It's like changing the menu yourself.
+  2. **Engine.ini**: it can change things the menu doesn't offer, like fog. In an online game that may be seen as cheating, so NEXUS shows a warning first and the choice is yours. Withdrawing the permission puts Engine.ini back the way it was.
+- Detection looks for the anti-cheat's files in the game folder. An anti-cheat installed only as a system driver can't be seen that way. I can't test every anti-cheat: in competitive online games, leave both permissions off.
+
+![The two permissions on a game with Easy Anti-Cheat](images/anticheat-permissions.jpg)
+
+![The warning NEXUS shows before allowing Engine.ini](images/engine-warning.jpg)
 
 ## What it does not do
 
 - It does not modify game executables or data packages.
 - It does not touch, disable or bypass anti-cheat systems.
-- It does not decrypt protected files: if a game encrypts its settings, NEXUS says so and uses other routes.
-- It does not make numbers up: what it cannot measure is shown as "—".
+- It does not decrypt protected files. If a game encrypts its settings, NEXUS says so and uses other routes.
+- It does not make numbers up.
+
+## Also inside
+
+A live PC dashboard (temperatures, load, fans, FPS), your Steam and Epic library, and power controls.
+
+![Live dashboard: CPU, GPU, RAM, VRAM, temperatures and fans](images/dashboard.jpg)
 
 ## Requirements
 
@@ -36,9 +73,30 @@ The app is available in **English and Spanish**. It picks the language of your W
 
 ## Download
 
-Go to **[Releases](../../releases)** and download `NEXUS-Setup-….exe`.
+Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.35.1).
 
-Read the **[installation guide](GUIDE.md)** first: it explains the Windows "unknown publisher" warning and how to undo everything.
+Read the **[installation guide](GUIDE.md)** first. It explains the Windows "unknown publisher" warning and how to undo everything.
+
+## Tested so far
+
+| Game | Result |
+|---|---|
+| Phantom Blade Zero | Ray tracing turned off from outside the game: from 67 to 81 FPS on average (RTX 3080, 4K), measured and confirmed by the game itself. AUTO AI then tried a lower shadow level, measured no improvement and removed it by itself. |
+| SILENT HILL: Townfall | 9 settings applied; measurement pending |
+| Halloween: The Game (Easy Anti-Cheat) | Driver and Windows applied, and the settings file with the owner's permission; measurement pending |
+
+These results come from a single PC. The screenshots on this page are real, from that PC. Yours may differ: that is what the beta is for.
+
+## Tell me how it went
+
+Use the **Feedback & support** button inside NEXUS. It opens a GitHub issue with your text already filled in, and nothing is sent without you. Or open an entry in **[Issues](../../issues)** with:
+
+1. Your graphics card and processor.
+2. The game.
+3. What NEXUS showed after you played (a screenshot of the "AUTO AI · result" block is enough).
+4. What you expected and what happened.
+
+![Feedback window inside NEXUS](images/feedback.jpg)
 
 ## Coming soon
 
@@ -46,25 +104,6 @@ Read the **[installation guide](GUIDE.md)** first: it explains the Windows "unkn
 - **Signed installer**, so Windows stops showing the "unknown publisher" warning.
 
 No dates are promised: things are released when they have been tested.
-
-## Tested so far
-
-| Game | Result |
-|---|---|
-| Phantom Blade Zero | Ray tracing turned off from outside the game: from 67 to 81 FPS on average (RTX 3080, 4K), measured and confirmed by the game itself |
-| SILENT HILL: Townfall | Settings applied; measurement pending |
-| Halloween: The Game | Driver and Windows applied; measurement pending |
-
-These are results from a single PC. Yours may differ: that is what the beta is for.
-
-## Tell me how it went
-
-Use the **Feedback & support** button inside NEXUS, or open an entry in **[Issues](../../issues)** with:
-
-1. Your graphics card and processor.
-2. The game.
-3. What NEXUS showed after you played (a screenshot of the "AUTO AI · result" block is enough).
-4. What you expected and what happened.
 
 ## Support the project
 
@@ -85,31 +124,70 @@ NEXUS is proprietary software. This beta is offered for testing only: see **[LIC
 
 # Español
 
-**NEXUS AI Ecosystem — beta cerrada** · [English ↑](#nexus-ai-ecosystem--closed-beta)
+**NEXUS AI Ecosystem — beta** · [English ↑](#nexus-ai-ecosystem--beta)
 
-NEXUS es un programa para PC con Windows que ajusta los gráficos de tus juegos **solo y midiendo**: prueba un cambio, mira cómo cambian tus FPS mientras juegas y se queda únicamente con lo que de verdad ayuda en tu equipo.
+NEXUS es una aplicación gratuita para Windows (en beta) que ajusta los gráficos de tus juegos **midiendo, no adivinando**. Cambia una cosa, mira tus FPS reales mientras juegas y se queda solo con lo que de verdad ayuda en tu PC.
 
-> **Esto es una beta.** Está probada en pocos equipos. Puede fallar. Todo lo que cambia se puede deshacer con un botón.
+> **Esto es una beta.** Está probada en muy pocos equipos y puede fallar. Todo lo que cambia se puede deshacer con un botón.
 
-![Resultado de AUTO AI en un juego: estado, qué cambió y qué hacer ahora](images/optimization.jpg)
+La aplicación está en **español e inglés**. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú. Las capturas de esta página están en inglés.
 
-La aplicación está en **español e inglés**. Las capturas de esta página están en inglés. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú.
+![Phantom Blade Zero después de AUTO AI: optimizado, verificado, y una prueba que no ayudó quitada sola](images/optimization.jpg)
 
-## Qué hace
+## Cómo funciona
 
-- **AUTO AI:** pulsas un botón en un juego y NEXUS investiga sus archivos, aplica lo que puede cambiar con seguridad y, después de cada partida, comprueba el resultado y sigue sola.
-- **Mide de verdad:** no promete FPS. Compara lo que midió antes y después y te lo dice, también cuando un cambio no sirvió.
-- **Tres caminos:** los ajustes del propio juego, el controlador NVIDIA y la configuración gráfica de Windows.
-- **Restaurar todo:** un botón devuelve cada ajuste a como estaba.
-- **Aviso de Windows** cuando cambia algo después de una partida.
-- Además: panel del PC en tiempo real (temperaturas, uso, FPS), biblioteca de juegos de Steam y Epic, y control de energía.
+1. **Pulsa AUTO AI en un juego.** NEXUS lee los archivos de ajustes del juego y aplica lo que puede cambiar con seguridad: los ajustes del propio juego, el perfil del controlador NVIDIA y la preferencia gráfica de Windows. Antes guarda cómo estaba todo.
+2. **Juega normal y cierra el juego.** Mientras juegas, NEXUS graba los FPS con [PresentMon](https://github.com/GameTechDev/PresentMon) (el contador de fotogramas de código abierto de Intel), además del uso de la gráfica, la VRAM y las temperaturas.
+3. **NEXUS compara y decide.** Después de la partida compara los FPS de antes y de después. Un cambio que no ayudó se quita. Si tus FPS siguen sin llegar al objetivo, deja **una** opción nueva en prueba para tu próxima partida. Cada vez te avisa con una notificación de Windows.
+4. **Deshaz cuando quieras.** **Restaurar todo** devuelve cada ajuste a como estaba.
+
+Nunca promete FPS: te dice lo que midió, también cuando un cambio no sirvió. Lo que no puede medir lo muestra como «—».
+
+![Rendimiento medido de una partida: FPS de media, 1 % más bajo, uso de la gráfica, VRAM y temperatura](images/performance.jpg)
+
+### Tu objetivo de FPS
+
+Por defecto AUTO AI apunta a los Hz de tu pantalla. Puedes escribir tu propio número para cada juego (por ejemplo 90), o mover el deslizador a **MAX FPS** (sigue buscando más FPS) o a **ULTRA QUALITY** (nunca baja la calidad).
+
+## Guía de ajustes (nueva en la 0.35)
+
+La propuso un usuario de Reddit: como las guías de «ajustes optimizados» de los canales de pruebas de hardware, pero medida en **tu** PC.
+
+- Primero, una partida de referencia sin cambios. Después, **un ajuste por partida**: sombras, iluminación global, reflejos, efectos, posprocesado y distancia de dibujado, cada uno un nivel más bajo.
+- De cada ajuste ves los FPS que gana o pierde, el 1 % más bajo y un veredicto: *mejora clara*, *baja los FPS*, *sin efecto medible* o *dudoso*. Si es dudoso, la misma prueba sigue una partida más.
+- Cada ajuste vuelve a como estaba después de medirlo. Al final marcas los que te compensan y NEXUS aplica solo esos.
+
+Sus límites, tal cual: hacen falta varias partidas; mide en partidas normales y no en una escena repetida, así que hay más ruido que en un banco de pruebas (juega en zonas parecidas); y no juzga la calidad de imagen, eso lo decides tú mirando el juego. Pasa las pruebas automáticas, pero todavía no se ha probado con partidas reales. La captura la muestra al empezar.
+
+![Guía de ajustes en SILENT HILL: Townfall: seis ajustes por probar, empezando por una partida de referencia](images/guide.jpg)
+
+## Juegos con antitrampas
+
+Una pregunta habitual es si el antitrampas de un juego detectará NEXUS.
+
+- NEXUS no inyecta nada en los juegos, no lee ni escribe su memoria y nunca modifica ejecutables, paquetes de datos ni archivos del antitrampas. Los FPS salen de PresentMon, que lee el registro de eventos del propio Windows: sin ganchos y sin superposiciones.
+- Cuando detecta un antitrampas en un juego (Easy Anti-Cheat, BattlEye, NCGuard, nProtect GameGuard, XIGNCODE3, EA Anti-Cheat y otros), por defecto solo cambia el perfil del controlador NVIDIA y la preferencia gráfica de Windows. Eso funciona fuera del juego, como el Panel de control de NVIDIA.
+- En cada juego puedes darle **dos permisos separados**, los dos apagados de entrada:
+  1. **Su archivo de ajustes**: el mismo que escribe el menú de gráficos del juego. Es como cambiar el menú tú mismo.
+  2. **Engine.ini**: puede cambiar cosas que el menú no ofrece, como la niebla. En un juego online eso puede verse como trampa, así que NEXUS avisa antes y la decisión es tuya. Al retirar el permiso, Engine.ini vuelve a como estaba.
+- La detección busca los archivos del antitrampas en la carpeta del juego. Un antitrampas instalado solo como controlador del sistema no se ve así. No puedo probar todos los antitrampas: en juegos online competitivos, deja los dos permisos apagados.
+
+![Los dos permisos en un juego con Easy Anti-Cheat](images/anticheat-permissions.jpg)
+
+![El aviso que muestra NEXUS antes de permitir Engine.ini](images/engine-warning.jpg)
 
 ## Qué no hace
 
 - No modifica ejecutables ni paquetes de datos de los juegos.
 - No toca, desactiva ni evita sistemas antitrampas.
-- No descifra archivos protegidos: si un juego cifra sus ajustes, NEXUS lo dice y usa otros caminos.
-- No inventa números: lo que no puede medir lo muestra como «—».
+- No descifra archivos protegidos. Si un juego cifra sus ajustes, NEXUS lo dice y usa otros caminos.
+- No inventa números.
+
+## Además
+
+Panel del PC en tiempo real (temperaturas, uso, ventiladores, FPS), tu biblioteca de Steam y Epic, y control de energía.
+
+![Panel en tiempo real: procesador, gráfica, RAM, VRAM, temperaturas y ventiladores](images/dashboard.jpg)
 
 ## Requisitos
 
@@ -119,9 +197,30 @@ La aplicación está en **español e inglés**. Las capturas de esta página est
 
 ## Descargar
 
-Ve a **[Releases](../../releases)** y descarga `NEXUS-Setup-….exe`.
+Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.35.1).
 
-Lee antes la **[guía de instalación](GUIA.md)**: explica el aviso de «editor desconocido» de Windows y cómo deshacer todo.
+Lee antes la **[guía de instalación](GUIA.md)**. Explica el aviso de «editor desconocido» de Windows y cómo deshacer todo.
+
+## Probado hasta ahora
+
+| Juego | Resultado |
+|---|---|
+| Phantom Blade Zero | Trazado de rayos apagado desde fuera del juego: de 67 a 81 FPS de media (RTX 3080, 4K), medido y confirmado por el propio juego. Después AUTO AI probó un nivel de sombras más bajo, midió que no mejoraba y lo quitó sola. |
+| SILENT HILL: Townfall | 9 ajustes aplicados; pendiente de medición |
+| Halloween: The Game (Easy Anti-Cheat) | Controlador y Windows aplicados, y el archivo de ajustes con permiso del dueño; pendiente de medición |
+
+Son resultados de un solo equipo. Las capturas de esta página son reales, de ese equipo. En el tuyo pueden ser distintos: para eso es la beta.
+
+## Cuéntame cómo te fue
+
+Usa el botón **Opinar y apoyar** dentro de NEXUS. Abre un aviso en GitHub con tu texto ya escrito, y no se envía nada sin ti. O abre un aviso en **[Issues](../../issues)** con:
+
+1. Tu tarjeta gráfica y procesador.
+2. El juego.
+3. Qué te mostró NEXUS después de jugar (una captura del bloque «AUTO AI · resultado» sirve).
+4. Qué esperabas y qué pasó.
+
+![Ventana para opinar dentro de NEXUS](images/feedback.jpg)
 
 ## Próximamente
 
@@ -129,25 +228,6 @@ Lee antes la **[guía de instalación](GUIA.md)**: explica el aviso de «editor 
 - **Instalador firmado**, para que Windows no muestre el aviso de «editor desconocido».
 
 No hay fechas prometidas: se publicará cuando esté probado.
-
-## Probado hasta ahora
-
-| Juego | Resultado |
-|---|---|
-| Phantom Blade Zero | Trazado de rayos apagado desde fuera del juego: de 67 a 81 FPS de media (RTX 3080, 4K), medido y confirmado por el propio juego |
-| SILENT HILL: Townfall | Ajustes aplicados; pendiente de medición |
-| Halloween: The Game | Controlador y Windows aplicados; pendiente de medición |
-
-Son resultados de un solo equipo. En el tuyo pueden ser distintos: para eso es la beta.
-
-## Cuéntame cómo te fue
-
-Usa el botón **Opinar y apoyar** dentro de NEXUS, o abre un aviso en **[Issues](../../issues)** con:
-
-1. Tu tarjeta gráfica y procesador.
-2. El juego.
-3. Qué te mostró NEXUS después de jugar (una captura del bloque «AUTO AI · resultado» sirve).
-4. Qué esperabas y qué pasó.
 
 ## Apoyar el proyecto
 
