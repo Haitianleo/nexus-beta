@@ -67,4 +67,4 @@ En la vista completa (**Vista sencilla · ver todo** en el menú) cada uno de es
 | No aparece un juego | Tiene que estar instalado por Steam o Epic. Cierra y abre NEXUS. |
 | AUTO AI dice que no puede cambiar nada | Ese juego guarda sus ajustes de una forma que NEXUS no puede escribir. Te indica qué cambiar en el menú del juego. |
 | No llega la notificación | Mira si Windows tiene «No molestar» activado (la campana junto al reloj). En la ficha del juego hay un botón **Probar aviso de Windows**. |
-| El juego va peor | **Restaurar todo** y cuéntalo en Issues. |
+| El juego va peor | **Restaurar todo** y cuéntamelo en el [formulario de opinión](https://forms.gle/orRMRurHcRCdbiBRA) (sin cuenta) o en Issues. |

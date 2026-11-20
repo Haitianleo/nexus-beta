@@ -67,4 +67,4 @@ In the full view (**Simple view · show everything** in the menu) each of those 
 | A game does not show up | It has to be installed through Steam or Epic. Close and reopen NEXUS. |
 | AUTO AI says it cannot change anything | That game stores its settings in a way NEXUS cannot write. It tells you what to change in the game's own menu. |
 | The notification does not arrive | Check whether Windows has "Do not disturb" on (the bell next to the clock). |
-| The game runs worse | **Restore everything** and report it in Issues. |
+| The game runs worse | **Restore everything** and tell me in the [feedback form](https://forms.gle/orRMRurHcRCdbiBRA) (no account needed) or in Issues. |

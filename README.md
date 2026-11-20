@@ -91,7 +91,9 @@ These results come from a single PC. The screenshots on this page are real, from
 
 ## Tell me how it went
 
-Use the **Feedback & support** button inside NEXUS. It opens a GitHub issue with your text already filled in, and nothing is sent without you. Or open an entry in **[Issues](../../issues)** with:
+The quickest way, **no account needed**: the **[feedback form](https://forms.gle/orRMRurHcRCdbiBRA)**. Stars plus a few optional questions; it takes a minute.
+
+If you have a GitHub account, you can also use the **Feedback & support** button inside NEXUS. It opens a GitHub issue with your text already filled in, and nothing is sent without you. Or open an entry in **[Issues](../../issues)** with:
 
 1. Your graphics card and processor.
 2. The game.
@@ -217,7 +219,9 @@ Son resultados de un solo equipo. Las capturas de esta página son reales, de es
 
 ## Cuéntame cómo te fue
 
-Usa el botón **Opinar y apoyar** dentro de NEXUS. Abre un aviso en GitHub con tu texto ya escrito, y no se envía nada sin ti. O abre un aviso en **[Issues](../../issues)** con:
+Lo más rápido, **sin cuenta**: el **[formulario de opinión](https://forms.gle/orRMRurHcRCdbiBRA)**. Estrellas y unas preguntas opcionales; es un minuto.
+
+Si tienes cuenta de GitHub, también puedes usar el botón **Opinar y apoyar** dentro de NEXUS. Abre un aviso en GitHub con tu texto ya escrito, y no se envía nada sin ti. O abre un aviso en **[Issues](../../issues)** con:
 
 1. Tu tarjeta gráfica y procesador.
 2. El juego.
