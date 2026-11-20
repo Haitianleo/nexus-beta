@@ -75,6 +75,8 @@ A live PC dashboard (temperatures, load, fans, FPS), your Steam and Epic library
 
 Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.35.1).
 
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.35.1.exe](https://www.virustotal.com/gui/file/e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699): 0 of 66 antivirus engines flag it. The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699`
+
 Read the **[installation guide](GUIDE.md)** first. It explains the Windows "unknown publisher" warning and how to undo everything.
 
 ## Tested so far
@@ -198,6 +200,8 @@ Panel del PC en tiempo real (temperaturas, uso, ventiladores, FPS), tu bibliotec
 ## Descargar
 
 Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.35.1).
+
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.35.1.exe](https://www.virustotal.com/gui/file/e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699): 0 de 66 antivirus lo marcan. El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `e4a13612c5f008323304fb575a4d7620f2a15349cec1f6e54a812af40e76f699`
 
 Lee antes la **[guía de instalación](GUIA.md)**. Explica el aviso de «editor desconocido» de Windows y cómo deshacer todo.
 
