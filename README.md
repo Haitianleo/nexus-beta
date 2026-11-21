@@ -10,6 +10,18 @@ NEXUS is a free Windows app (in beta) that tunes your games' graphics **by measu
 
 The app is in **English and Spanish**. It uses your Windows language the first time, and you can switch it at any moment from the menu.
 
+**Current version: [0.39.0](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.39.0-beta)**
+
+## What's new in 0.39
+
+- **Update from the app.** NEXUS shows the new version's notes and offers *Update now*, *Later* or *Skip this version*. It only installs if the SHA-256 hash matches the published one, then reopens by itself.
+- **Windows notifications with buttons:** new version, newly installed game, dangerous temperature while playing, and AUTO AI only when it really raised your FPS (measured). Each kind can be turned off.
+- **Settings saved in `.sav` files.** Some Unreal games keep their graphics options in their own save file and ignore their `.ini`. NEXUS now writes those too, with a backup, only with the game closed, and checks them after you play. Encrypted or unknown files are marked *Not recognized* and left alone.
+- **More accurate FPS:** standard *1% low* from each frame's time, and FPS from the game itself, not other windows.
+- **New dark installer**, in English or Spanish depending on Windows.
+- **Anonymous statistics**, on by default with a notice on first launch (see *Privacy*).
+- **Game Streaming and Remote access** show as *Coming soon*: in this beta NEXUS works on this PC only.
+
 ## How it works
 
 1. **Press AUTO AI on a game.** NEXUS reads the game's settings files and applies what it can change safely: the game's own settings, the NVIDIA driver profile and the Windows graphics preference. It saves how everything was first.
@@ -71,6 +83,10 @@ A common question is whether an anti-cheat will pick NEXUS up.
 
 ![The warning NEXUS shows before allowing Engine.ini](images/engine-warning.jpg)
 
+**Settings saves (`.sav`) count as the game's settings file:** in a game with anti-cheat, NEXUS only writes them with that game's extended permission, never saved games.
+
+**Extended permissions are your responsibility.** NEXUS takes no responsibility for penalties or bans if you turn them on. Removing them puts back what was changed with them.
+
 ## What it does not do
 
 - It does not modify game executables or data packages.
@@ -84,16 +100,24 @@ A live PC dashboard (temperatures, load, fans, FPS), your Steam and Epic library
 
 ![Live dashboard: CPU, GPU, RAM, VRAM, temperatures and fans](images/dashboard.jpg)
 
-## New versions (new in 0.36)
+## Updating from the app (new in 0.39)
 
-Once a day NEXUS checks this page for a newer version. It only reads: it sends nothing about you. If there is one, NEXUS shows a bar with a **Download** button and a Windows notification. You can turn it off in **Connection & security**.
+Once a day NEXUS checks this page for a newer version. If there is one, it shows the notes and offers **Update now**, **Later** (asks again the next day) or **Skip this version**. *Update now* downloads the installer only from this page's releases and checks its SHA-256 against the published `.sha256` file; if it doesn't match, nothing is installed. Windows asks for administrator permission, NEXUS closes, updates and reopens by itself. You can turn the check off in **Connection & security**.
 
-Versions 0.35.1 and older can't do this, so install 0.36 by hand once. If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
+**Versions 0.35.1 and older can't update by themselves:** download and install 0.39.0 by hand once. From 0.39 on, the app does it. If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
 
 ## Privacy
 
-- NEXUS asks once whether it may count how many people use it. If you say yes, while NEXUS is open it sends a random number that identifies the PC (not you) and the NEXUS version every 5 minutes. Nothing else: no name, no games, no PC details. Turning it off in **Connection & security** deletes that number. If you say no, nothing is sent.
-- The daily check for new versions only reads GitHub.
+**Anonymous statistics are ON by default in 0.39.** On first launch NEXUS shows a notice explaining them, and you can turn them off right there or anytime in **Connection & security → Privacy**. Nothing is sent before you've seen that notice. If you had already said *no* in an earlier version, your choice is kept.
+
+What is sent, while NEXUS is open, every 5 minutes, to NEXUS's own server (Cloudflare):
+
+- a **random number for this installation** (it identifies the install, not you or your PC), the **NEXUS version** and the **edition** (Beta);
+- **counts** of three things: how many times NEXUS checked for a new version, and how many times *Support NEXUS* and the GitHub star were clicked. These counts are stored only as totals per day and version, **without the installation number**.
+
+What is **not** sent or stored: your name, email, games, PC details, files, or your IP address. Turning statistics off deletes the random number and nothing else is sent (and nothing is counted).
+
+- The daily check for new versions reads GitHub; it sends nothing about you to GitHub.
 - Feedback only leaves your PC if you submit the form yourself.
 
 ## Requirements
@@ -104,9 +128,9 @@ Versions 0.35.1 and older can't do this, so install 0.36 by hand once. If you al
 
 ## Download
 
-Go to **[Releases](../../releases)** and download the latest `NEXUS-Setup-….exe` (0.37.0).
+Go to **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.39.0-beta)** and download `NEXUS-Setup-0.39.0.exe` (0.39.0).
 
-**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.37.0.exe](https://www.virustotal.com/gui/file/e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915): no antivirus engine flags it (0 of 66). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915`
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.39.0.exe](https://www.virustotal.com/gui/file/6bbbb0bca702a319ebf39c7fe12dab48161df389d53cd96b0edcd34364602b66): no antivirus engine flags it (**0/65**). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `6bbbb0bca702a319ebf39c7fe12dab48161df389d53cd96b0edcd34364602b66`
 
 Already have NEXUS? Install the new version over it: your settings are kept.
 
@@ -137,7 +161,7 @@ The **Feedback & support** button inside NEXUS (0.36 and later) opens that same 
 
 ## Coming soon
 
-- **Phone app (iPhone and Android):** see your PC, launch AUTO AI and turn the PC on or off from your phone. It already works in internal testing; there is no release date yet.
+- **Game Streaming and Remote access** (play and control your PC from your phone, also away from home), with the **phone app (iPhone and Android)**. In this beta they show as *Coming soon*: NEXUS works on this PC only, doesn't accept outside connections and creates no Windows Firewall rules.
 - **Signed installer**, so Windows stops showing the "unknown publisher" warning.
 
 No dates are promised: things are released when they have been tested.
@@ -170,6 +194,18 @@ NEXUS es una aplicación gratuita para Windows (en beta) que ajusta los gráfico
 La aplicación está en **español e inglés**. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú. Las capturas de esta página están en inglés.
 
 ![Phantom Blade Zero después de AUTO AI: optimizado, verificado, y una prueba que no ayudó quitada sola](images/optimization.jpg)
+
+**Versión actual: [0.39.0](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.39.0-beta)**
+
+## Novedades de la 0.39
+
+- **Actualizar desde la app.** NEXUS enseña las notas de la versión nueva y ofrece *Actualizar ahora*, *Más tarde* o *Saltar esta versión*. Solo instala si la huella SHA-256 coincide con la publicada, y después se vuelve a abrir sola.
+- **Avisos de Windows con botones:** versión nueva, juego nuevo instalado, temperatura peligrosa al jugar y AUTO AI solo cuando de verdad subió tus FPS (medido). Cada tipo se puede apagar.
+- **Ajustes guardados en `.sav`.** Algunos juegos de Unreal guardan sus opciones gráficas en un archivo propio e ignoran su `.ini`. NEXUS ahora también los escribe ahí, con copia, solo con el juego cerrado, y lo comprueba después de jugar. Lo cifrado o desconocido sale como *No reconocido* y no se toca.
+- **FPS más fieles:** *1 % low* estándar con el tiempo de cada fotograma y FPS del propio juego, no de otras ventanas.
+- **Instalador nuevo**, oscuro, en español o inglés según Windows.
+- **Estadísticas anónimas**, encendidas por defecto con aviso en el primer arranque (ver *Privacidad*).
+- **Game Streaming y Acceso remoto** salen como *Próximamente*: en esta beta NEXUS funciona solo en este PC.
 
 ## Cómo funciona
 
@@ -232,6 +268,10 @@ Una pregunta habitual es si el antitrampas de un juego detectará NEXUS.
 
 ![El aviso que muestra NEXUS antes de permitir Engine.ini](images/engine-warning.jpg)
 
+**Los guardados de ajustes (`.sav`) cuentan como archivo de ajustes del juego:** en un juego con antitrampas, NEXUS solo los escribe con el permiso ampliado de ese juego, y nunca las partidas.
+
+**Los permisos ampliados son responsabilidad tuya.** NEXUS no se hace responsable de sanciones ni baneos si los activas. Al quitarlos, vuelve a como estaba lo que se cambió con ellos.
+
 ## Qué no hace
 
 - No modifica ejecutables ni paquetes de datos de los juegos.
@@ -245,16 +285,24 @@ Panel del PC en tiempo real (temperaturas, uso, ventiladores, FPS), tu bibliotec
 
 ![Panel en tiempo real: procesador, gráfica, RAM, VRAM, temperaturas y ventiladores](images/dashboard.jpg)
 
-## Versiones nuevas (nuevo en la 0.36)
+## Actualizar desde la app (nuevo en la 0.39)
 
-Una vez al día NEXUS mira en esta página si hay una versión más nueva. Solo lee: no envía nada tuyo. Si la hay, NEXUS muestra una barra con el botón **Descargar** y un aviso de Windows. Se puede apagar en **Conexión y seguridad**.
+Una vez al día NEXUS mira en esta página si hay una versión más nueva. Si la hay, enseña sus notas y ofrece **Actualizar ahora**, **Más tarde** (vuelve a avisar al día siguiente) o **Saltar esta versión**. *Actualizar ahora* descarga el instalador solo de las publicaciones de esta página y comprueba su SHA-256 con el archivo `.sha256` publicado; si no coincide, no se instala nada. Windows pide permiso de administrador, NEXUS se cierra, se actualiza y se vuelve a abrir sola. Se puede apagar en **Conexión y seguridad**.
 
-La 0.35.1 y las anteriores no saben hacerlo, así que instala la 0.36 a mano una vez. Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
+**La 0.35.1 y las anteriores no se pueden actualizar solas:** descarga e instala la 0.39.0 a mano una vez. Desde la 0.39, lo hace la app. Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
 
 ## Privacidad
 
-- NEXUS pregunta una vez si puede contar cuántas personas lo usan. Si dices que sí, mientras NEXUS está abierto envía cada 5 minutos un número al azar que identifica el PC (no a ti) y la versión de NEXUS. Nada más: ni tu nombre, ni tus juegos, ni datos del PC. Apagarlo en **Conexión y seguridad** borra ese número. Si dices que no, no se envía nada.
-- La consulta diaria de versiones nuevas solo lee GitHub.
+**En la 0.39 las estadísticas anónimas vienen ACTIVADAS por defecto.** En el primer arranque NEXUS muestra un aviso que las explica, y puedes apagarlas ahí mismo o cuando quieras en **Conexión y seguridad → Privacidad**. No se envía nada antes de que hayas visto ese aviso. Si en una versión anterior ya dijiste que *no*, se respeta tu elección.
+
+Qué se envía, mientras NEXUS está abierto, cada 5 minutos, al servidor propio de NEXUS (Cloudflare):
+
+- un **número al azar de esta instalación** (identifica la instalación, no a ti ni a tu PC), la **versión de NEXUS** y la **edición** (Beta);
+- **recuentos** de tres cosas: cuántas veces NEXUS buscó una versión nueva y cuántas se pulsaron *Apoyar NEXUS* y la estrella de GitHub. Estos recuentos se guardan solo como totales por día y versión, **sin el número de la instalación**.
+
+Qué **no** se envía ni se guarda: tu nombre, correo, juegos, datos del PC, archivos ni tu dirección IP. Al apagar las estadísticas se borra el número al azar y no se envía nada más (ni se cuenta nada).
+
+- La consulta diaria de versiones nuevas lee GitHub; no le envía nada tuyo.
 - Tu opinión solo sale de tu PC si tú envías el formulario.
 
 ## Requisitos
@@ -265,9 +313,9 @@ La 0.35.1 y las anteriores no saben hacerlo, así que instala la 0.36 a mano una
 
 ## Descargar
 
-Ve a **[Releases](../../releases)** y descarga el último `NEXUS-Setup-….exe` (0.37.0).
+Ve a **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.39.0-beta)** y descarga `NEXUS-Setup-0.39.0.exe` (0.39.0).
 
-**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.37.0.exe](https://www.virustotal.com/gui/file/e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915): ningún antivirus lo marca (0 de 66). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `e8e6aab86693a60a5ac7dfa6e6ba93d9dca3496a0c84fa9f70da0b89a60b0915`
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.39.0.exe](https://www.virustotal.com/gui/file/6bbbb0bca702a319ebf39c7fe12dab48161df389d53cd96b0edcd34364602b66): ningún antivirus lo marca (**0/65**). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `6bbbb0bca702a319ebf39c7fe12dab48161df389d53cd96b0edcd34364602b66`
 
 ¿Ya tienes NEXUS? Instala la versión nueva encima: tus ajustes se conservan.
 
@@ -298,7 +346,7 @@ El botón **Opinar y apoyar** dentro de NEXUS (0.36 y posteriores) abre ese mism
 
 ## Próximamente
 
-- **App para el teléfono (iPhone y Android):** ver el estado del PC, lanzar AUTO AI y apagar o encender el equipo desde el móvil. Ya funciona en pruebas internas; todavía no hay fecha para publicarla.
+- **Game Streaming y Acceso remoto** (jugar y manejar tu PC desde el teléfono, también fuera de casa), con la **app para el teléfono (iPhone y Android)**. En esta beta salen como *Próximamente*: NEXUS funciona solo en este PC, no acepta conexiones de fuera y no crea reglas en el firewall de Windows.
 - **Instalador firmado**, para que Windows no muestre el aviso de «editor desconocido».
 
 No hay fechas prometidas: se publicará cuando esté probado.
