@@ -8,9 +8,18 @@
 
 > **This is a beta.** It has been tested on very few PCs and it may fail. Everything it changes can be undone with one button.
 
-**Current version: [0.40.0](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.0-beta)** · [Download](#download) · [Installation guide](GUIDE.md)
+**Current version: [0.40.1](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** · [Download](#download) · [Installation guide](GUIDE.md)
 
 The app is in **English and Spanish**. It uses your Windows language the first time, and you can switch it at any moment from the menu.
+
+## What's new in 0.40.1
+
+Four small fixes on top of 0.40.
+
+- **FPS target with a switch.** Next to the FPS target of each game there is now an On/Off button. Off: NEXUS doesn't limit that game's FPS and leaves the limit the game already has. With the slider on MAX FPS the target isn't used, and the field says so.
+- **The target now limits the game.** The number you type is the FPS limit NEXUS writes when you optimize; with no number, it uses your display's refresh rate, as before. With V-Sync on, a game can't go above your display's Hz: if your number is higher, the limit stays at the display's Hz and NEXUS tells you. AUTO AI no longer keeps lowering quality to chase a target that V-Sync makes impossible.
+- **V-Sync fix in AUTO AI.** When the graphics card was what limited a game, AUTO AI turned V-Sync off in the driver while leaving it on in the game. Now the driver leaves it to the game. MAX FPS, when you choose it, works as before.
+- **New versions, within minutes.** NEXUS now looks for a new version every time you open it and every 30 minutes while it's open, instead of once a day.
 
 ## What's new in 0.40
 
@@ -104,7 +113,7 @@ The AMD readings are new too and haven't been tried on a real Radeon yet.
 
 NEXUS works with the card you play on: the dedicated one with the most memory. On any card it can change the game's own settings and Windows' graphics options for that game, and it measures FPS the same way.
 
-"Driver settings" are the ones NEXUS changes in the graphics driver for one game only. Before each change it saves how the setting was; afterwards it reads it back and, if the driver didn't take it, undoes it and says so. **Restore everything** puts them back. On Intel (Arc and recent integrated graphics) they are low latency, sync and Endurance Gaming, and NEXUS never touches Intel's general settings. On AMD they (Anti-Lag, Chill and others) are prepared but not part of 0.40.0.
+"Driver settings" are the ones NEXUS changes in the graphics driver for one game only. Before each change it saves how the setting was; afterwards it reads it back and, if the driver didn't take it, undoes it and says so. **Restore everything** puts them back. On Intel (Arc and recent integrated graphics) they are low latency, sync and Endurance Gaming, and NEXUS never touches Intel's general settings. On AMD they (Anti-Lag, Chill and others) are prepared but not part of 0.40.1.
 
 **Have an AMD or Intel card? I need your help.** I don't have one to test with. In NEXUS go to **Connection & security → Help → Export diagnostics** and send me the `.zip`: how to do it is in [Tell me how it went](#tell-me-how-it-went).
 
@@ -176,9 +185,9 @@ A common question is whether an anti-cheat will pick NEXUS up.
 
 ## Updating from the app
 
-Once a day NEXUS checks this page for a newer version. If there is one, it shows the notes and offers **Update now**, **Later** (asks again the next day) or **Skip this version**. *Update now* downloads the installer only from this page's releases and checks its SHA-256 against the published `.sha256` file; if it doesn't match, nothing is installed. Windows asks for administrator permission, NEXUS closes, updates and reopens by itself. You can turn the check off in **Connection & security**.
+NEXUS checks this page for a newer version every time you open it and every 30 minutes while it's open (0.40.0 and older check once a day). If there is one, it shows the notes and offers **Update now**, **Later** (asks again the next day) or **Skip this version**. *Update now* downloads the installer only from this page's releases and checks its SHA-256 against the published `.sha256` file; if it doesn't match, nothing is installed. Windows asks for administrator permission, NEXUS closes, updates and reopens by itself. You can turn the check off in **Connection & security**.
 
-**Only 0.39 and later update by themselves.** With an older version, download and install 0.40.0 by hand once (0.35.1 and older don't even check for new versions). If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
+**Only 0.39 and later update by themselves.** With an older version, download and install 0.40.1 by hand once (0.35.1 and older don't even check for new versions). If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
 
 ## Privacy
 
@@ -195,7 +204,7 @@ What is **not** sent or stored: your name, email, games, PC details, files, or y
 
 What else uses the internet:
 
-- The daily check for new versions reads GitHub; it sends nothing about you to GitHub.
+- The check for new versions reads GitHub; it sends nothing about you to GitHub.
 - At most once a week NEXUS downloads the public *Are We Anti-Cheat Yet?* list (a file from GitHub); nothing is sent.
 - Cover images of Epic games are downloaded once from Epic's own servers.
 - Feedback only leaves your PC if you submit the form yourself.
@@ -209,9 +218,9 @@ What else uses the internet:
 
 ## Download
 
-Go to **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.0-beta)** and download `NEXUS-Setup-0.40.0.exe` (0.40.0, 39.7 MB).
+Go to **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** and download `NEXUS-Setup-0.40.1.exe` (0.40.1, 39.7 MB).
 
-**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.40.0.exe](https://www.virustotal.com/gui/file/640062f1fa19f5837f2cd7eae169169398272e789d58bf67f2670306b85e6603): no antivirus engine flags it (**0/70**). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `640062f1fa19f5837f2cd7eae169169398272e789d58bf67f2670306b85e6603`
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.40.1.exe](https://www.virustotal.com/gui/file/df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463): no antivirus engine flags it (**0/69**). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463`
 
 Already have NEXUS? 0.39 offers the update by itself. With an older version, install the new one over it: your settings are kept.
 
@@ -262,7 +271,7 @@ The **Give feedback** button inside NEXUS opens that same form with your stars a
 
 ### AMD or Intel card? Send me the diagnostics
 
-1. Install 0.40.0 and use it as usual: look at the Dashboard (does it show your card's temperature and fan?) and try AUTO AI on a game.
+1. Install 0.40.1 and use it as usual: look at the Dashboard (does it show your card's temperature and fan?) and try AUTO AI on a game.
 2. In NEXUS go to **Connection & security → Help → Export diagnostics**. It saves a `.zip` with where NEXUS looked for your games' settings, basic PC details (Windows, processor, graphics card, memory) and how it got on with your card's driver. It has no user name, no PC name and no full paths, and NEXUS never sends it.
 3. Attach the `.zip` to a new entry in **[Issues](../../issues)** and say which card you have. **GitHub Issues are public: attaching the `.zip` there publishes it.** The file names your games, so have a look inside first. No GitHub account? Tell me your card and what you saw in the [feedback form](https://forms.gle/orRMRurHcRCdbiBRA).
 
@@ -304,9 +313,18 @@ NEXUS is proprietary software. This beta is offered for testing only: see **[LIC
 
 > **Esto es una beta.** Está probada en muy pocos equipos y puede fallar. Todo lo que cambia se puede deshacer con un botón.
 
-**Versión actual: [0.40.0](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.0-beta)** · [Descargar](#descargar) · [Guía de instalación](GUIA.md)
+**Versión actual: [0.40.1](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** · [Descargar](#descargar) · [Guía de instalación](GUIA.md)
 
 La aplicación está en **español e inglés**. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú. Las capturas de esta página están en inglés.
+
+## Novedades de la 0.40.1
+
+Cuatro arreglos pequeños sobre la 0.40.
+
+- **Objetivo de FPS con interruptor.** Al lado del objetivo de FPS de cada juego hay ahora un botón Encendido/Apagado. Apagado: NEXUS no limita los FPS de ese juego y deja el límite que el juego ya tenga. Con el deslizador en MAX FPS el objetivo no se usa, y el campo lo dice.
+- **El objetivo ahora limita el juego.** El número que escribes es el límite de FPS que NEXUS pone al optimizar; sin número, usa los Hz de tu pantalla, como antes. Con V-Sync activado un juego no pasa de los Hz de tu pantalla: si tu número es mayor, el límite se queda en los Hz de la pantalla y NEXUS te lo avisa. AUTO AI ya no sigue bajando la calidad para perseguir un objetivo que con V-Sync no se puede alcanzar.
+- **Arreglo del V-Sync en AUTO AI.** Cuando la tarjeta gráfica era lo que limitaba un juego, AUTO AI apagaba V-Sync en el controlador y a la vez lo dejaba activado en el juego. Ahora el controlador lo deja en manos del juego. MAX FPS, cuando lo eliges tú, funciona como antes.
+- **Versiones nuevas, en minutos.** NEXUS busca ahora una versión nueva cada vez que lo abres y cada 30 minutos mientras está abierto, en vez de una vez al día.
 
 ## Novedades de la 0.40
 
@@ -400,7 +418,7 @@ Los datos de las AMD también son nuevos y todavía no se han probado en una Rad
 
 NEXUS usa la tarjeta con la que juegas: la dedicada con más memoria. Con cualquier tarjeta puede cambiar los ajustes del propio juego y las opciones gráficas de Windows para ese juego, y mide los FPS igual.
 
-Los «ajustes del controlador» son los que NEXUS cambia en el controlador de la gráfica solo para un juego. Antes de cada cambio guarda cómo estaba el ajuste; después lo relee y, si el controlador no lo aceptó, lo deshace y lo dice. **Restaurar todo** los devuelve a como estaban. En Intel (Arc y gráficas integradas recientes) son la baja latencia, la sincronización y Endurance Gaming, y NEXUS nunca toca los ajustes generales de Intel. En AMD están preparados (Anti-Lag, Chill y otros), pero no van en la 0.40.0.
+Los «ajustes del controlador» son los que NEXUS cambia en el controlador de la gráfica solo para un juego. Antes de cada cambio guarda cómo estaba el ajuste; después lo relee y, si el controlador no lo aceptó, lo deshace y lo dice. **Restaurar todo** los devuelve a como estaban. En Intel (Arc y gráficas integradas recientes) son la baja latencia, la sincronización y Endurance Gaming, y NEXUS nunca toca los ajustes generales de Intel. En AMD están preparados (Anti-Lag, Chill y otros), pero no van en la 0.40.1.
 
 **¿Tienes una gráfica AMD o Intel? Necesito tu ayuda.** No tengo ninguna para probar. En NEXUS ve a **Conexión y seguridad → Ayuda → Exportar diagnóstico** y mándame el `.zip`: cómo hacerlo está en [Cuéntame cómo te fue](#cuéntame-cómo-te-fue).
 
@@ -472,9 +490,9 @@ Una pregunta habitual es si el antitrampas de un juego detectará NEXUS.
 
 ## Actualizar desde la app
 
-Una vez al día NEXUS mira en esta página si hay una versión más nueva. Si la hay, enseña sus notas y ofrece **Actualizar ahora**, **Más tarde** (vuelve a avisar al día siguiente) o **Saltar esta versión**. *Actualizar ahora* descarga el instalador solo de las publicaciones de esta página y comprueba su SHA-256 con el archivo `.sha256` publicado; si no coincide, no se instala nada. Windows pide permiso de administrador, NEXUS se cierra, se actualiza y se vuelve a abrir sola. Se puede apagar en **Conexión y seguridad**.
+NEXUS mira en esta página si hay una versión más nueva cada vez que lo abres y cada 30 minutos mientras está abierto (la 0.40.0 y las anteriores miran una vez al día). Si la hay, enseña sus notas y ofrece **Actualizar ahora**, **Más tarde** (vuelve a avisar al día siguiente) o **Saltar esta versión**. *Actualizar ahora* descarga el instalador solo de las publicaciones de esta página y comprueba su SHA-256 con el archivo `.sha256` publicado; si no coincide, no se instala nada. Windows pide permiso de administrador, NEXUS se cierra, se actualiza y se vuelve a abrir sola. Se puede apagar en **Conexión y seguridad**.
 
-**Solo la 0.39 y las posteriores se actualizan solas.** Con una versión anterior, descarga e instala la 0.40.0 a mano una vez (la 0.35.1 y las anteriores ni siquiera buscan versiones nuevas). Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
+**Solo la 0.39 y las posteriores se actualizan solas.** Con una versión anterior, descarga e instala la 0.40.1 a mano una vez (la 0.35.1 y las anteriores ni siquiera buscan versiones nuevas). Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
 
 ## Privacidad
 
@@ -491,7 +509,7 @@ Qué **no** se envía ni se guarda: tu nombre, correo, juegos, datos del PC, arc
 
 Qué más usa internet:
 
-- La consulta diaria de versiones nuevas lee GitHub; no le envía nada tuyo.
+- La consulta de versiones nuevas lee GitHub; no le envía nada tuyo.
 - Como mucho una vez por semana NEXUS descarga la lista pública de *Are We Anti-Cheat Yet?* (un archivo de GitHub); no envía nada.
 - Las portadas de los juegos de Epic se descargan una vez de los servidores de Epic.
 - Tu opinión solo sale de tu PC si tú envías el formulario.
@@ -505,9 +523,9 @@ Qué más usa internet:
 
 ## Descargar
 
-Ve a **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.0-beta)** y descarga `NEXUS-Setup-0.40.0.exe` (0.40.0, 39,7 MB).
+Ve a **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** y descarga `NEXUS-Setup-0.40.1.exe` (0.40.1, 39,7 MB).
 
-**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.40.0.exe](https://www.virustotal.com/gui/file/640062f1fa19f5837f2cd7eae169169398272e789d58bf67f2670306b85e6603): ningún antivirus lo marca (**0/70**). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `640062f1fa19f5837f2cd7eae169169398272e789d58bf67f2670306b85e6603`
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.40.1.exe](https://www.virustotal.com/gui/file/df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463): ningún antivirus lo marca (**0/69**). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463`
 
 ¿Ya tienes NEXUS? La 0.39 te ofrece la actualización ella sola. Con una versión anterior, instala la nueva encima: tus ajustes se conservan.
 
@@ -558,7 +576,7 @@ El botón **Dar mi opinión** dentro de NEXUS abre ese mismo formulario con tus 
 
 ### ¿Gráfica AMD o Intel? Mándame el diagnóstico
 
-1. Instala la 0.40.0 y úsala como siempre: mira el Panel (¿sale la temperatura y el ventilador de tu tarjeta?) y prueba AUTO AI en un juego.
+1. Instala la 0.40.1 y úsala como siempre: mira el Panel (¿sale la temperatura y el ventilador de tu tarjeta?) y prueba AUTO AI en un juego.
 2. En NEXUS ve a **Conexión y seguridad → Ayuda → Exportar diagnóstico**. Guarda un `.zip` con dónde buscó NEXUS los ajustes de tus juegos, los datos básicos del PC (Windows, procesador, tarjeta gráfica, memoria) y cómo le fue con el controlador de tu tarjeta. No lleva tu nombre de usuario, ni el del PC, ni rutas completas, y NEXUS nunca lo envía.
 3. Adjunta el `.zip` a un aviso nuevo en **[Issues](../../issues)** y di qué tarjeta tienes. **Los Issues de GitHub son públicos: al adjuntar ahí el `.zip` lo estás publicando.** El archivo nombra tus juegos, así que míralo antes. ¿Sin cuenta de GitHub? Cuéntame tu tarjeta y lo que viste en el [formulario de opinión](https://forms.gle/orRMRurHcRCdbiBRA).
 
