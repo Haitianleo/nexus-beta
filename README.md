@@ -8,9 +8,50 @@
 
 > **This is a beta.** It has been tested on very few PCs and it may fail. Everything it changes can be undone with one button.
 
-**Current version: [0.40.1](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** · [Download](#download) · [Installation guide](GUIDE.md)
+**Current version: [0.42.0](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.42.0-beta)** · [Download](#download) · [Installation guide](GUIDE.md)
 
 The app is in **English and Spanish**. It uses your Windows language the first time, and you can switch it at any moment from the menu.
+
+## What's new in 0.42
+
+0.42.0 is the first public version since 0.40.1. It brings together two versions that were built in a row: 0.41 (NEXUS learns about your PC and asks before risky changes) and 0.42 (AUTO AI keeps only what really helps on your PC).
+
+**AUTO AI that knows your PC**
+- Before touching a game, AUTO AI reads your graphics card, processor, memory, disk and temperatures.
+- When you play with NEXUS open, it measures what limits each game and tells you in plain words: “Your graphics card is what sets the FPS”, “Your processor might be limiting performance. More measurements are needed to confirm it”, “Graphics memory is close to full”… High usage alone is not treated as a confirmed problem: NEXUS needs it to be steady, and for memory, to come with drops.
+- Until it has measured about a minute of real gameplay, it says there isn't enough data instead of guessing.
+- AUTO AI starts from the graphics settings the game already has. It doesn't raise or lower quality without a measured reason (low FPS, spare headroom) or because the textures don't fit in your graphics card's memory. If the game already runs well, its quality stays as it is. Safe settings outside the game (graphics driver and Windows) work as before.
+
+**Only what really helps**
+- When AUTO AI tests a change, it compares before and after: average FPS, the slowest 1 %, the worst frame, and how busy the graphics card, processor and memory are.
+- The change stays only if it clearly helps. If the FPS go up but the drops get worse, if stutter appears, or if the picture loses more than your goal allows (MAX FPS allows the most, ULTRA QUALITY nothing), NEXUS undoes it and tells you why.
+- AUTO AI no longer tests changes that would lower quality more than your goal allows.
+- The settings guide warns you when a gain comes with worse drops, stutter or too much quality loss. In the guide, applying is still your decision.
+
+**How each game runs on your PC**
+- On each game's page, **How this game runs on your PC** shows what NEXUS has seen, what is worth changing (with what you would notice in the picture, and whether it was measured on your PC or is an estimate), and the measured before and after, only when the data is valid.
+- **Your PC** in PC Control: your hardware, temperatures and what your graphics card supports (DLSS, FSR, XeSS and frame generation, depending on the card).
+
+**Permissions and notices for changes beyond the menu**
+- Changes outside the game's own menu (Engine.ini) come with a notice: they alter what you see, and some anti-cheat systems or game rules may treat visual changes as an advantage. NEXUS doesn't claim they are allowed or risk-free.
+- You accept or reject each one, per game and per change. If the change or the information about it changes, NEXUS asks again. An anti-cheat alone is never treated as proof that something is forbidden.
+- **Permissions for this game** lists what you accepted, lets you withdraw it, and shows what is waiting for your decision. Withdrawing doesn't undo what was applied: “Restore everything” does.
+- One panel instead of up to three windows in a row. AUTO AI, Optimize and the settings guide ask in a single panel: what NEXUS will do, what it may change, the notice that applies and “I authorize NEXUS to make these changes in <game>”. Authorize stays off until you tick it, and Cancel changes nothing.
+- Nothing is merged to save windows: the settings file and Engine.ini permissions are separate, unticked boxes; changes with a notice have their own box (if you leave it, everything else is applied without them); changes the developer forbids are shown and never offered. A permission belongs to that game only.
+
+**Improve future optimizations**
+- NEXUS can remember what it measured on your PC, per game, to do better next time. Results from another computer never count as yours.
+- It stays on this PC: it is not part of the anonymous usage counter or of the diagnostic you can export.
+- Turn it off or erase it (everything, or one game) in Smart Graphics AI. Off, AUTO AI keeps optimizing the same way; it just stops saving. Uninstalling NEXUS keeps your data folder (as with backups): erase it first if you want it gone.
+
+**Game detection**
+- NEXUS also looks for Battle.net games.
+- Games that Steam says are still downloading or updating, or whose folder has no program, are shown as “Probable detection”.
+- Fixed: NEXUS stopped seeing Steam games when another program changed where Windows says Steam is installed.
+
+**Not yet tried on real hardware**
+- Battle.net, AMD and Intel graphics cards and laptops have been tested with simulated data, not on real machines.
+- The heat signal used to confirm a thermal limit only exists on NVIDIA cards.
 
 ## What's new in 0.40.1
 
@@ -63,19 +104,6 @@ These are the full notes of this version; the app shows a shorter version.
 - If you can, send the diagnostics as well: “Connection & security” → “Help” → “Export diagnostics” saves a .zip without your user name, your PC's name or full paths. NEXUS never sends it: you attach it yourself to a new issue at github.com/Haitianleo/nexus-beta/issues.
 - GitHub Issues are public: whoever attaches the .zip there is publishing it. The file names your games, so have a look inside first.
 
-**Coming soon in 0.41**
-
-Confirmed:
-
-- NEXUS will be able to change the upscaler (DLSS, FSR, XeSS) in more games.
-- AUTO AI will pick each change by how many FPS it gives and how visible it is.
-
-Probably:
-
-- PC check: warnings about things that slow games down (memory, driver, overlays).
-- More ways to find settings in games that don't use Unreal.
-- Battle.net and Rockstar Games Launcher.
-
 NEXUS isn't code-signed: Windows may show SmartScreen (“More info” → “Run anyway”) and the User Account Control prompt with “Unknown publisher”.
 
 ## How it works
@@ -113,7 +141,7 @@ The AMD readings are new too and haven't been tried on a real Radeon yet.
 
 NEXUS works with the card you play on: the dedicated one with the most memory. On any card it can change the game's own settings and Windows' graphics options for that game, and it measures FPS the same way.
 
-"Driver settings" are the ones NEXUS changes in the graphics driver for one game only. Before each change it saves how the setting was; afterwards it reads it back and, if the driver didn't take it, undoes it and says so. **Restore everything** puts them back. On Intel (Arc and recent integrated graphics) they are low latency, sync and Endurance Gaming, and NEXUS never touches Intel's general settings. On AMD they (Anti-Lag, Chill and others) are prepared but not part of 0.40.1.
+"Driver settings" are the ones NEXUS changes in the graphics driver for one game only. Before each change it saves how the setting was; afterwards it reads it back and, if the driver didn't take it, undoes it and says so. **Restore everything** puts them back. On Intel (Arc and recent integrated graphics) they are low latency, sync and Endurance Gaming, and NEXUS never touches Intel's general settings. On AMD they (Anti-Lag, Chill and others) are prepared but not part of 0.42.
 
 **Have an AMD or Intel card? I need your help.** I don't have one to test with. In NEXUS go to **Connection & security → Help → Export diagnostics** and send me the `.zip`: how to do it is in [Tell me how it went](#tell-me-how-it-went).
 
@@ -154,16 +182,17 @@ A common question is whether an anti-cheat will pick NEXUS up.
 
 - NEXUS doesn't inject anything into games, doesn't read or write game memory, and never modifies executables, game data packages or anti-cheat files. FPS come from PresentMon, which reads Windows' own event tracing: no hooks, no overlay.
 - When NEXUS knows a game uses an anti-cheat (Easy Anti-Cheat, BattlEye, Riot Vanguard, NCGuard, nProtect GameGuard, XIGNCODE3, EA Anti-Cheat and others), by default it only changes the graphics driver and Windows for that game. Those work outside the game, like the driver's own control panel.
-- When you press AUTO AI on such a game, the window says so and offers **two separate permissions**, both unticked:
+- When you press AUTO AI on such a game, a single panel says so (what NEXUS knows about the anti-cheat and what it couldn't check) and offers **two separate permissions**, both unticked:
   1. **The game's settings file**: the same file the game's own graphics menu writes. It's like changing the menu yourself.
-  2. **Engine.ini**: it can change things the menu doesn't offer, like fog. In an online game that may be seen as cheating, so NEXUS asks a second time before allowing it, and the choice is yours.
+  2. **Engine.ini**: it can change things the menu doesn't offer, like fog. In an online game some rules see that as cheating, so its box says “I understand the risk” and shows that notice next to it. The choice is yours.
+- Nothing goes ahead until you tick “I authorize NEXUS to make these changes in <game>”. Cancel changes nothing, and a permission is for that game only.
 - **Remove permissions**, on the game's page, takes them back and puts back what was changed with them.
 - How NEXUS knows: the anti-cheat's files in the game folder, what the launcher says (Riot games use Vanguard) and the public [Are We Anti-Cheat Yet?](https://areweanticheatyet.com) list, which it downloads at most once a week (nothing is sent). It can still miss one, and I can't test every anti-cheat: in competitive online games, leave both permissions off.
 - **Nothing is undone on its own.** If NEXUS learns that a game uses anti-cheat after it had already changed something, it keeps it, tells you, and changes nothing else in the game's files without your permission. **Restore everything** still puts it all back.
 
 ![The AUTO AI window on a game with Easy Anti-Cheat: driver and Windows only, and the two optional permissions unticked](images/anticheat-dialog.jpg)
 
-*Captured with 0.39; in 0.40 the text says "graphics driver" instead of "NVIDIA driver".*
+*Captured with 0.39. Since 0.42 it is one panel: what NEXUS will do, what it may change, the same two unticked permissions and an “I authorize…” box.*
 
 **Settings saves (`.sav`) count as the game's settings file:** in a game with anti-cheat, NEXUS only writes them with that game's extended permission, never saved games.
 
@@ -187,7 +216,7 @@ A common question is whether an anti-cheat will pick NEXUS up.
 
 NEXUS checks this page for a newer version every time you open it and every 30 minutes while it's open (0.40.0 and older check once a day). If there is one, it shows the notes and offers **Update now**, **Later** (asks again the next day) or **Skip this version**. *Update now* downloads the installer only from this page's releases and checks its SHA-256 against the published `.sha256` file; if it doesn't match, nothing is installed. Windows asks for administrator permission, NEXUS closes, updates and reopens by itself. You can turn the check off in **Connection & security**.
 
-**Only 0.39 and later update by themselves.** With an older version, download and install 0.40.1 by hand once (0.35.1 and older don't even check for new versions). If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
+**Only 0.39 and later update by themselves.** With an older version, download and install 0.42.0 by hand once (0.35.1 and older don't even check for new versions). If you also want an email from GitHub with each new version, click **Watch → Custom → Releases** at the top of this page.
 
 ## Privacy
 
@@ -218,9 +247,9 @@ What else uses the internet:
 
 ## Download
 
-Go to **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** and download `NEXUS-Setup-0.40.1.exe` (0.40.1, 39.7 MB).
+Go to **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.42.0-beta)** and download `NEXUS-Setup-0.42.0.exe` (0.42.0, 39.9 MB).
 
-**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.40.1.exe](https://www.virustotal.com/gui/file/df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463): no antivirus engine flags it (**0/69**). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463`
+**Antivirus check:** [VirusTotal scan of NEXUS-Setup-0.42.0.exe](https://www.virustotal.com/gui/file/0757b9643ad5159b835d96fce97786093be1a9ea441006a2ef9075d002966f2c): no antivirus engine flags it (**0/70**). The installer isn't signed yet, so Windows may still show its "unknown publisher" warning.<br>SHA256: `0757b9643ad5159b835d96fce97786093be1a9ea441006a2ef9075d002966f2c`
 
 Already have NEXUS? 0.39 offers the update by itself. With an older version, install the new one over it: your settings are kept.
 
@@ -238,7 +267,7 @@ This result comes from a single PC and an earlier version. Yours may differ: tha
 
 *Captured with an earlier version, which showed the setting's internal name; the beta now shows plain names.*
 
-The screenshots on this page are real, from that PC. Most were taken with 0.39, so a few labels differ in 0.40.
+The screenshots on this page are real, from that PC. Most were taken with 0.39, so a few labels differ in 0.42.
 
 ## Tested and not tested yet
 
@@ -255,6 +284,9 @@ What has been tried for real on the test PC (RTX 3080, Windows 11), and what has
 | Intel: driver settings, temperature and fan | Not tried on a real Intel card. |
 | AMD: temperature, fan and power draw | Not tried on a real Radeon. |
 | Documents in OneDrive | The folder is found on the test PC; not tried yet with a game that keeps its settings there. |
+| Reading your PC and what limits each game (0.42) | Tried on the test PC (RTX 3080, Ryzen 7 7700X). AMD and Intel graphics cards and laptops: simulated data only. The heat signal that confirms a thermal limit exists only on NVIDIA. |
+| Battle.net | Sample data only. |
+| The single permission panel (0.42) | Tried in the real window: it shows, Authorize stays off until ticked and Cancel changes nothing. Authorizing: automated tests only. |
 
 If any of this fails on your PC, that is exactly what I need to know.
 
@@ -271,15 +303,15 @@ The **Give feedback** button inside NEXUS opens that same form with your stars a
 
 ### AMD or Intel card? Send me the diagnostics
 
-1. Install 0.40.1 and use it as usual: look at the Dashboard (does it show your card's temperature and fan?) and try AUTO AI on a game.
+1. Install 0.42.0 and use it as usual: look at the Dashboard (does it show your card's temperature and fan?) and try AUTO AI on a game.
 2. In NEXUS go to **Connection & security → Help → Export diagnostics**. It saves a `.zip` with where NEXUS looked for your games' settings, basic PC details (Windows, processor, graphics card, memory) and how it got on with your card's driver. It has no user name, no PC name and no full paths, and NEXUS never sends it.
 3. Attach the `.zip` to a new entry in **[Issues](../../issues)** and say which card you have. **GitHub Issues are public: attaching the `.zip` there publishes it.** The file names your games, so have a look inside first. No GitHub account? Tell me your card and what you saw in the [feedback form](https://forms.gle/orRMRurHcRCdbiBRA).
 
 ## Coming soon
 
-What's planned for 0.41 is at the end of [What's new in 0.40](#whats-new-in-040).
-Later, with no version yet:
+With no version yet:
 
+- **Changing the upscaler (DLSS, FSR, XeSS) in more games.** It was planned for 0.41 and isn't in 0.42.
 - **AMD driver settings.**
 - **Game Streaming and Remote access** (play and control your PC from your phone, also away from home), with the **phone app (iPhone and Android)**. In this beta they show as *Coming soon*: NEXUS works on this PC only, doesn't accept outside connections and creates no Windows Firewall rules.
 - **Signed installer**, so Windows stops showing the "unknown publisher" warning.
@@ -313,9 +345,50 @@ NEXUS is proprietary software. This beta is offered for testing only: see **[LIC
 
 > **Esto es una beta.** Está probada en muy pocos equipos y puede fallar. Todo lo que cambia se puede deshacer con un botón.
 
-**Versión actual: [0.40.1](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** · [Descargar](#descargar) · [Guía de instalación](GUIA.md)
+**Versión actual: [0.42.0](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.42.0-beta)** · [Descargar](#descargar) · [Guía de instalación](GUIA.md)
 
 La aplicación está en **español e inglés**. La primera vez usa el idioma de tu Windows, y puedes cambiarlo cuando quieras desde el menú. Las capturas de esta página están en inglés.
+
+## Novedades de la 0.42
+
+La 0.42.0 es la primera versión pública desde la 0.40.1. Junta dos versiones hechas seguidas: la 0.41 (NEXUS conoce tu PC y pregunta antes de los cambios con riesgo) y la 0.42 (AUTO AI se queda solo con lo que de verdad ayuda en tu PC).
+
+**AUTO AI que conoce tu PC**
+- Antes de tocar un juego, AUTO AI lee tu tarjeta gráfica, procesador, memoria, disco y temperaturas.
+- Cuando juegas con NEXUS abierto, mide qué limita a cada juego y te lo dice con palabras sencillas: «Tu tarjeta gráfica es la que marca los FPS», «Tu procesador podría estar limitando el rendimiento. Se necesitan más mediciones para confirmarlo», «La memoria gráfica está cerca de su capacidad»… Un uso alto por sí solo no cuenta como problema confirmado: hace falta que sea constante y, en la memoria, que vaya con bajones.
+- Hasta que mide alrededor de un minuto de juego real, dice que no hay datos suficientes en vez de adivinar.
+- AUTO AI parte de los ajustes gráficos que el juego ya tiene. No sube ni baja la calidad sin un motivo medido (FPS bajos, margen de sobra) o porque las texturas no caben en la memoria de tu gráfica. Si el juego ya va bien, su calidad se queda como está. Los ajustes seguros fuera del juego (controlador de la gráfica y Windows) funcionan como antes.
+
+**Solo lo que ayuda de verdad**
+- Cuando AUTO AI prueba un cambio, compara antes y después: FPS de media, el 1 % más lento, el peor fotograma y cuánto trabajan la gráfica, el procesador y la memoria.
+- El cambio se queda solo si ayuda claramente. Si suben los FPS pero empeoran los bajones, si aparecen tirones o si la imagen pierde más de lo que permite tu objetivo (MAX FPS es el que más permite; ULTRA QUALITY, nada), NEXUS lo deshace y te dice por qué.
+- AUTO AI ya no prueba cambios que bajarían la calidad más de lo que permite tu objetivo.
+- La guía de ajustes te avisa cuando una mejora trae bajones, tirones o demasiada pérdida de calidad. En la guía, aplicar sigue siendo decisión tuya.
+
+**Cómo va cada juego en tu PC**
+- En la página de cada juego, **Cómo va este juego en tu PC** enseña lo que NEXUS ha visto, lo que conviene cambiar (con lo que se notaría en la imagen, y si está medido en tu PC o es una estimación) y el antes y después medido, solo cuando los datos valen.
+- **Tu PC** en PC Control: tu hardware, las temperaturas y lo que admite tu gráfica (DLSS, FSR, XeSS y generación de fotogramas, según la tarjeta).
+
+**Permisos y avisos para los cambios fuera del menú**
+- Los cambios fuera del menú del propio juego (Engine.ini) llevan un aviso: alteran lo que se ve, y algunos antitrampas o reglas de juego pueden considerar los cambios visuales una ventaja. NEXUS no afirma que estén permitidos ni que no tengan riesgo.
+- Aceptas o rechazas cada uno, por juego y por cambio. Si el cambio o lo que se sabe de él cambia, NEXUS vuelve a preguntar. Que un juego tenga antitrampas no se toma nunca, por sí solo, como prueba de que algo esté prohibido.
+- **Permisos de este juego** enseña lo que aceptaste, te deja retirarlo y dice lo que espera tu decisión. Retirar no deshace lo aplicado: eso lo hace «Restaurar todo».
+- Un panel en vez de hasta tres ventanas seguidas. AUTO AI, Optimizar y la guía de ajustes piden permiso en un solo panel: qué hará NEXUS, qué puede cambiar, el aviso que corresponda y «Autorizo a NEXUS a realizar estos cambios en <juego>». «Autorizar» no se activa hasta que la marcas, y Cancelar no cambia nada.
+- No se junta nada para ahorrar ventanas: los permisos del archivo de ajustes y de Engine.ini son casillas aparte y desmarcadas; los cambios con aviso tienen su propia casilla (si no la marcas, se aplica todo lo demás sin ellos); lo que el desarrollador prohíbe se muestra y no se ofrece nunca. Un permiso vale solo para ese juego.
+
+**Mejorar futuras optimizaciones**
+- NEXUS puede recordar lo que ha medido en tu PC, juego por juego, para acertar más la próxima vez. Los resultados de otro equipo nunca cuentan como tuyos.
+- Se queda en este PC: no va en el contador anónimo de uso ni en el diagnóstico que puedes exportar.
+- Apágalo o bórralo (todo o de un juego) en Smart Graphics AI. Apagado, AUTO AI sigue optimizando igual; solo deja de guardar. Al desinstalar NEXUS se conserva tu carpeta de datos (como las copias de seguridad): bórralo antes si quieres que desaparezca.
+
+**Detección de juegos**
+- NEXUS busca también juegos de Battle.net.
+- Los juegos que Steam tiene descargándose o actualizándose, o cuya carpeta no tiene ningún programa, salen como «Detección probable».
+- Arreglado: NEXUS dejaba de ver los juegos de Steam cuando otro programa cambiaba dónde dice Windows que está Steam.
+
+**Todavía sin probar en equipos reales**
+- Battle.net, las gráficas AMD e Intel y los portátiles se han probado con datos simulados, no en equipos reales.
+- La señal de calor que confirma un límite térmico solo la dan las tarjetas NVIDIA.
 
 ## Novedades de la 0.40.1
 
@@ -368,19 +441,6 @@ Estas son las notas completas de esta versión; la app enseña una versión más
 - Si puedes, manda además el diagnóstico: «Conexión y seguridad» → «Ayuda» → «Exportar diagnóstico» guarda un .zip sin tu nombre de usuario, sin el nombre del PC y sin rutas completas. NEXUS nunca lo envía: lo adjuntas tú a un aviso nuevo en github.com/Haitianleo/nexus-beta/issues.
 - Los Issues de GitHub son públicos: quien adjunta ahí el .zip lo está publicando. El archivo nombra tus juegos, así que míralo antes.
 
-**Próximamente en la 0.41**
-
-Confirmado:
-
-- NEXUS podrá cambiar el escalador (DLSS, FSR, XeSS) en más juegos.
-- AUTO AI elegirá cada cambio por cuántos FPS da y cuánto se nota en pantalla.
-
-Probablemente:
-
-- Revisión del PC: avisos de cosas que frenan los juegos (memoria, controlador, superposiciones).
-- Más formas de encontrar los ajustes de juegos que no son de Unreal.
-- Battle.net y Rockstar Games Launcher.
-
 NEXUS no está firmado: Windows puede mostrar SmartScreen («Más información» → «Ejecutar de todas formas») y el aviso de Control de cuentas con «Editor desconocido».
 
 ## Cómo funciona
@@ -418,7 +478,7 @@ Los datos de las AMD también son nuevos y todavía no se han probado en una Rad
 
 NEXUS usa la tarjeta con la que juegas: la dedicada con más memoria. Con cualquier tarjeta puede cambiar los ajustes del propio juego y las opciones gráficas de Windows para ese juego, y mide los FPS igual.
 
-Los «ajustes del controlador» son los que NEXUS cambia en el controlador de la gráfica solo para un juego. Antes de cada cambio guarda cómo estaba el ajuste; después lo relee y, si el controlador no lo aceptó, lo deshace y lo dice. **Restaurar todo** los devuelve a como estaban. En Intel (Arc y gráficas integradas recientes) son la baja latencia, la sincronización y Endurance Gaming, y NEXUS nunca toca los ajustes generales de Intel. En AMD están preparados (Anti-Lag, Chill y otros), pero no van en la 0.40.1.
+Los «ajustes del controlador» son los que NEXUS cambia en el controlador de la gráfica solo para un juego. Antes de cada cambio guarda cómo estaba el ajuste; después lo relee y, si el controlador no lo aceptó, lo deshace y lo dice. **Restaurar todo** los devuelve a como estaban. En Intel (Arc y gráficas integradas recientes) son la baja latencia, la sincronización y Endurance Gaming, y NEXUS nunca toca los ajustes generales de Intel. En AMD están preparados (Anti-Lag, Chill y otros), pero no van en la 0.42.
 
 **¿Tienes una gráfica AMD o Intel? Necesito tu ayuda.** No tengo ninguna para probar. En NEXUS ve a **Conexión y seguridad → Ayuda → Exportar diagnóstico** y mándame el `.zip`: cómo hacerlo está en [Cuéntame cómo te fue](#cuéntame-cómo-te-fue).
 
@@ -459,16 +519,17 @@ Una pregunta habitual es si el antitrampas de un juego detectará NEXUS.
 
 - NEXUS no inyecta nada en los juegos, no lee ni escribe su memoria y nunca modifica ejecutables, paquetes de datos ni archivos del antitrampas. Los FPS salen de PresentMon, que lee el registro de eventos del propio Windows: sin ganchos y sin superposiciones.
 - Cuando NEXUS sabe que un juego usa antitrampas (Easy Anti-Cheat, BattlEye, Riot Vanguard, NCGuard, nProtect GameGuard, XIGNCODE3, EA Anti-Cheat y otros), por defecto solo cambia el controlador de la gráfica y Windows para ese juego. Eso funciona fuera del juego, como el panel de control del propio controlador.
-- Al pulsar AUTO AI en uno de esos juegos, la ventana lo dice y ofrece **dos permisos separados**, los dos sin marcar:
+- Al pulsar AUTO AI en uno de esos juegos, un solo panel lo dice (lo que NEXUS sabe del antitrampas y lo que no ha podido comprobar) y ofrece **dos permisos separados**, los dos sin marcar:
   1. **El archivo de ajustes del juego**: el mismo que escribe el menú de gráficos del juego. Es como cambiar el menú tú mismo.
-  2. **Engine.ini**: puede cambiar cosas que el menú no ofrece, como la niebla. En un juego online eso puede verse como trampa, así que NEXUS pregunta una segunda vez antes de permitirlo, y la decisión es tuya.
+  2. **Engine.ini**: puede cambiar cosas que el menú no ofrece, como la niebla. En un juego online algunas reglas lo ven como trampa, así que su casilla dice «entiendo el riesgo» y enseña ese aviso al lado. La decisión es tuya.
+- No sigue nada hasta que marcas «Autorizo a NEXUS a realizar estos cambios en <juego>». Cancelar no cambia nada, y un permiso vale solo para ese juego.
 - **Quitar permisos**, en la ficha del juego, los retira y devuelve a como estaba lo que se cambió con ellos.
 - Cómo lo sabe NEXUS: por los archivos del antitrampas en la carpeta del juego, por lo que dice su lanzador (los juegos de Riot usan Vanguard) y por la lista pública de [Are We Anti-Cheat Yet?](https://areweanticheatyet.com), que descarga como mucho una vez por semana (no envía nada). Aun así se le puede escapar alguno, y no puedo probar todos los antitrampas: en juegos online competitivos, deja los dos permisos sin marcar.
 - **Nada se deshace solo.** Si NEXUS se entera de que un juego usa antitrampas cuando ya le había cambiado algo, lo conserva, te avisa y no cambia nada más en los archivos del juego sin tu permiso. **Restaurar todo** sigue devolviéndolo todo a como estaba.
 
 ![La ventana de AUTO AI en un juego con Easy Anti-Cheat: solo controlador y Windows, y los dos permisos opcionales sin marcar](images/anticheat-dialog.jpg)
 
-*Captura de la 0.39; en la 0.40 el texto dice «controlador de la gráfica» en vez de «controlador NVIDIA».*
+*Captura de la 0.39. Desde la 0.42 es un solo panel: qué hará NEXUS, qué puede cambiar, los mismos dos permisos sin marcar y una casilla «Autorizo…».*
 
 **Los guardados de ajustes (`.sav`) cuentan como archivo de ajustes del juego:** en un juego con antitrampas, NEXUS solo los escribe con el permiso ampliado de ese juego, y nunca las partidas.
 
@@ -492,7 +553,7 @@ Una pregunta habitual es si el antitrampas de un juego detectará NEXUS.
 
 NEXUS mira en esta página si hay una versión más nueva cada vez que lo abres y cada 30 minutos mientras está abierto (la 0.40.0 y las anteriores miran una vez al día). Si la hay, enseña sus notas y ofrece **Actualizar ahora**, **Más tarde** (vuelve a avisar al día siguiente) o **Saltar esta versión**. *Actualizar ahora* descarga el instalador solo de las publicaciones de esta página y comprueba su SHA-256 con el archivo `.sha256` publicado; si no coincide, no se instala nada. Windows pide permiso de administrador, NEXUS se cierra, se actualiza y se vuelve a abrir sola. Se puede apagar en **Conexión y seguridad**.
 
-**Solo la 0.39 y las posteriores se actualizan solas.** Con una versión anterior, descarga e instala la 0.40.1 a mano una vez (la 0.35.1 y las anteriores ni siquiera buscan versiones nuevas). Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
+**Solo la 0.39 y las posteriores se actualizan solas.** Con una versión anterior, descarga e instala la 0.42.0 a mano una vez (la 0.35.1 y las anteriores ni siquiera buscan versiones nuevas). Si además quieres un correo de GitHub con cada versión nueva, pulsa **Watch → Custom → Releases** arriba en esta página.
 
 ## Privacidad
 
@@ -523,9 +584,9 @@ Qué más usa internet:
 
 ## Descargar
 
-Ve a **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.40.1-beta)** y descarga `NEXUS-Setup-0.40.1.exe` (0.40.1, 39,7 MB).
+Ve a **[Releases](https://github.com/Haitianleo/nexus-beta/releases/tag/v0.42.0-beta)** y descarga `NEXUS-Setup-0.42.0.exe` (0.42.0, 39,9 MB).
 
-**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.40.1.exe](https://www.virustotal.com/gui/file/df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463): ningún antivirus lo marca (**0/69**). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `df84781ae967eb795ce3ed2e2b194e9167d58d30cd778d0c4734d12b1ee62463`
+**Análisis antivirus:** [análisis de VirusTotal de NEXUS-Setup-0.42.0.exe](https://www.virustotal.com/gui/file/0757b9643ad5159b835d96fce97786093be1a9ea441006a2ef9075d002966f2c): ningún antivirus lo marca (**0/70**). El instalador todavía no está firmado, así que Windows puede mostrar igualmente su aviso de «editor desconocido».<br>SHA256: `0757b9643ad5159b835d96fce97786093be1a9ea441006a2ef9075d002966f2c`
 
 ¿Ya tienes NEXUS? La 0.39 te ofrece la actualización ella sola. Con una versión anterior, instala la nueva encima: tus ajustes se conservan.
 
@@ -543,7 +604,7 @@ Es el resultado de un solo equipo y de una versión anterior. En el tuyo puede s
 
 *Captura de una versión anterior, que enseñaba el nombre interno del ajuste; la beta enseña ahora nombres sencillos.*
 
-Las capturas de esta página son reales, de ese equipo. La mayoría son de la 0.39, así que algún texto cambia en la 0.40.
+Las capturas de esta página son reales, de ese equipo. La mayoría son de la 0.39, así que algún texto cambia en la 0.42.
 
 ## Probado y sin probar todavía
 
@@ -560,6 +621,9 @@ Qué se ha probado de verdad en el PC de pruebas (RTX 3080, Windows 11) y qué s
 | Intel: ajustes del controlador, temperatura y ventilador | Sin probar en una gráfica Intel de verdad. |
 | AMD: temperatura, ventilador y consumo | Sin probar en una Radeon de verdad. |
 | Documentos en OneDrive | La carpeta se encuentra en el PC de pruebas; sin probar todavía con un juego que guarde ahí sus ajustes. |
+| Lectura de tu PC y qué limita a cada juego (0.42) | Probado en el PC de pruebas (RTX 3080, Ryzen 7 7700X). Gráficas AMD e Intel y portátiles: solo datos simulados. La señal de calor que confirma un límite térmico solo existe en NVIDIA. |
+| Battle.net | Solo datos de ejemplo. |
+| El panel único de permisos (0.42) | Probado en la ventana real: sale, «Autorizar» no se activa hasta marcar la casilla y Cancelar no cambia nada. Autorizar: solo pruebas automáticas. |
 
 Si algo de esto falla en tu PC, es justo lo que necesito saber.
 
@@ -576,15 +640,15 @@ El botón **Dar mi opinión** dentro de NEXUS abre ese mismo formulario con tus 
 
 ### ¿Gráfica AMD o Intel? Mándame el diagnóstico
 
-1. Instala la 0.40.1 y úsala como siempre: mira el Panel (¿sale la temperatura y el ventilador de tu tarjeta?) y prueba AUTO AI en un juego.
+1. Instala la 0.42.0 y úsala como siempre: mira el Panel (¿sale la temperatura y el ventilador de tu tarjeta?) y prueba AUTO AI en un juego.
 2. En NEXUS ve a **Conexión y seguridad → Ayuda → Exportar diagnóstico**. Guarda un `.zip` con dónde buscó NEXUS los ajustes de tus juegos, los datos básicos del PC (Windows, procesador, tarjeta gráfica, memoria) y cómo le fue con el controlador de tu tarjeta. No lleva tu nombre de usuario, ni el del PC, ni rutas completas, y NEXUS nunca lo envía.
 3. Adjunta el `.zip` a un aviso nuevo en **[Issues](../../issues)** y di qué tarjeta tienes. **Los Issues de GitHub son públicos: al adjuntar ahí el `.zip` lo estás publicando.** El archivo nombra tus juegos, así que míralo antes. ¿Sin cuenta de GitHub? Cuéntame tu tarjeta y lo que viste en el [formulario de opinión](https://forms.gle/orRMRurHcRCdbiBRA).
 
 ## Próximamente
 
-Lo previsto para la 0.41 está al final de [Novedades de la 0.40](#novedades-de-la-040).
-Más adelante, sin versión todavía:
+Sin versión todavía:
 
+- **Cambiar el escalador (DLSS, FSR, XeSS) en más juegos.** Estaba previsto para la 0.41 y no va en la 0.42.
 - **Ajustes del controlador de AMD.**
 - **Game Streaming y Acceso remoto** (jugar y manejar tu PC desde el teléfono, también fuera de casa), con la **app para el teléfono (iPhone y Android)**. En esta beta salen como *Próximamente*: NEXUS funciona solo en este PC, no acepta conexiones de fuera y no crea reglas en el firewall de Windows.
 - **Instalador firmado**, para que Windows no muestre el aviso de «editor desconocido».
